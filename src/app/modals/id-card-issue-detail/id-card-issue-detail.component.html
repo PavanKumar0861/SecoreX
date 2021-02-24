@@ -1,0 +1,46 @@
+<mat-toolbar color="primary">
+  <span>Card Issue</span>
+  <span class="fill-spacer"></span>
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon color="warn">cancel</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="body">
+  <div fxLayout.xs="column"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
+  >
+  <div fxFlex class="search">
+    <h2>Employee Number </h2>
+    </div>
+    <div fxFlex class="search">
+  
+      <h2> :1234 </h2>
+      </div>
+    </div>
+  
+    <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" >
+  <div fxFlex class="search">
+    <h2>Card Number </h2>
+    </div>
+    <div fxFlex class="search">
+      <mat-form-field  appearance="outline" style="color:black" class="w-90">
+        <input matInput placeholder="Enter Here" />
+    </mat-form-field>
+    <!-- <mat-icon>right</mat-icon> -->
+      </div>
+    </div>
+
+    <button mat-flat-button  class="bg-black custom-btn">Validate</button>
+
+    <div class="center mt-4">
+      <div  class="search">
+        <button mat-flat-button  class="bg-black custom-btn">Issue</button>
+        </div>
+        <div  class="search ml-4">
+          <button mat-stroked-button color="warn" class="br-red custom-btn">Cancel</button>
+          </div>
+        </div>
+</div>
+
+

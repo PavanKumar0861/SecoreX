@@ -1,0 +1,300 @@
+<div class="layout">
+    <div class="container">
+      <div class="row dash_sty">
+        <mat-card class="bg-grey mb-0" style="margin-bottom: 0px !important;">
+            <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
+                style="margin-bottom: 0px !important;">
+                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                    <mat-form-field appearance="outline" class="w-90">
+                        <!-- <mat-label>Company</mat-label> -->
+                        <mat-select placeholder="Company">
+                            <mat-option value="option">company 1</mat-option>
+                            <mat-option value="option">company 2</mat-option>
+                            <mat-option value="option">company 3</mat-option>
+                            <mat-option value="option">company 4</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                    <mat-form-field appearance="outline" class="w-90">
+                        <!-- <mat-label>Location</mat-label> -->
+                        <mat-select placeholder="Location">
+                            <mat-option value="option">location 1</mat-option>
+                            <mat-option value="option">location 2</mat-option>
+                            <mat-option value="option">location 3</mat-option>
+                            <mat-option value="option">location 4</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                    <mat-form-field appearance="outline" class="w-90">
+                        <input matInput placeholder="Ambit Request No" />
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                    <h3 *ngIf="advanceVisible" class="ml-10 cd_lst"><u class="advance_search"
+                            (click)="advance_click()">+
+                            Advance Search</u></h3>
+                    <h3 *ngIf="isVisible" class="ml-10 cd_lst"><u (click)="close_advance_click()">- Close
+                            Advance Search</u>
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <div *ngIf="isVisible" fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center"
+                fxLayoutGap="10px" style="margin-bottom: 0px !important;">
+                <div fxFlex class="search">
+                    <mat-form-field appearance="outline" style="color:black" class="w-90">
+                        <input matInput placeholder="Employee ID" />
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex class="search">
+                    <mat-form-field appearance="outline" class="w-90">
+                        <!-- <mat-label>Location</mat-label> -->
+                        <mat-select placeholder="Request Type">
+                            <mat-option value="option">Request Type 1</mat-option>
+                            <mat-option value="option">Request Type 2</mat-option>
+                            <mat-option value="option">Request Type 3</mat-option>
+                            <mat-option value="option">Request Type 4</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <!-- .sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%"  -->
+                <div fxFlex class="search">
+                    <mat-form-field appearance="outline" class="w-90">
+                        <!-- <mat-label>Location</mat-label> -->
+                        <mat-select placeholder="Status">
+                            <mat-option value="option">Status 1</mat-option>
+                            <mat-option value="option">Status 2</mat-option>
+                            <mat-option value="option">Status 3</mat-option>
+                            <mat-option value="option">Status 4</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex class="search">
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+            <div fxLayout="row" fxLayoutAlign="end start" fxLayoutGap="10px"
+                style="margin-bottom: 0px !important;">
+                <div fxFlex.sm="50%" fxFlex.md="20%" fxFlex.gt-md="15%" class="search">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<button mat-flat-button
+                        class="bg-black custom-btn">Search</button>
+                </div>
+
+                <div fxFlex.sm="50%" fxFlex.md="20%" fxFlex.gt-md="15%" class="search">
+                    <button mat-stroked-button class="custom-btn">RESET</button>
+                </div>
+            </div>
+
+
+        </mat-card>
+
+        <br /><br />
+
+        <mat-card>
+
+            <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1px"
+            style="margin-bottom: 0px !important;">
+            <div fxFlex.sm="60%" fxFlex.md="50%" fxFlex.gt-md="50%" class="search">
+                <h1 style="color: grey;"> Card List</h1>
+            </div>
+
+            <div fxFlex.sm="40%" fxFlex.md="50%" fxFlex.gt-md="50%" class="search">
+                <button mat-flat-button class="bg-black mr-4 custom-btn" >Printed</button>
+                <button mat-flat-button class="bg-black mr-4 custom-btn" >Change Printed</button>
+                <button mat-stroked-button color="warn" class="br-red mr-4 custom-btn"  >Cancel</button>
+       
+                <button mat-raised-button  (click)="addNewFilter()">  <mat-icon>tune</mat-icon></button>
+         
+
+              
+            </div>
+            </div>
+
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        
+            <!-- Checkbox Column -->
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="empNo">
+              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Emp ID</th>
+              <td class="cd_table" mat-cell *matCellDef="let element">{{ element.empNo }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="company">
+              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Company</th>
+              <td class="cd_table" mat-cell *matCellDef="let element">{{ element.company }}</td>
+            </ng-container>
+
+            
+            <ng-container matColumnDef="ambitRequestNo">
+                <th class="cd_lst" mat-header-cell *matHeaderCellDef>Ambit Request No</th>
+                <td mat-cell *matCellDef="let element">
+                {{element.ambitRequestNo}}
+                </td>
+              </ng-container>
+
+            <ng-container matColumnDef="completedOn">
+              <th class="cd_lst" mat-header-cell *matHeaderCellDef>completed On</th>
+              <td class="cd_table" mat-cell *matCellDef="let element">{{ element.completedOn }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="completedBy">
+                <th class="cd_lst" mat-header-cell *matHeaderCellDef>completed By</th>
+                <td class="cd_table" mat-cell *matCellDef="let element">{{ element.completedBy }}</td>
+              </ng-container>
+
+            <ng-container matColumnDef="location">
+              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Location</th>
+              <td mat-cell *matCellDef="let element">{{ element.location }}</td>
+            </ng-container>
+
+            <ng-container class="cd_lst" matColumnDef="status">
+              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Status</th>
+              <td class="cd_table" mat-cell *matCellDef="let element">{{ element.status }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Action</th>
+              <td mat-cell *matCellDef="let element">
+                &nbsp;&nbsp;<img src="../../../assets/secore/1a.png" matTooltip="Change Printer" />
+                <!-- &nbsp;&nbsp;
+                <img src="../../../assets/secore/2a.png" matTooltip="Approved" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../../../assets/secore/3.png" matTooltip="View Status" /> -->
+              </td>
+            </ng-container>
+
+            <!-- 
+            <ng-container matColumnDef="header-row-first-group" *ngIf="filter">
+              <th mat-header-cell *matHeaderCellDef 
+                  [attr.colspan]="1"> 
+                First group 
+              </th>
+            </ng-container>
+            
+          
+            <ng-container matColumnDef="header-row-second-group" *ngIf="filter">
+              <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"> Second group </th>
+            </ng-container>
+
+            <ng-container matColumnDef="header-row-third-group" *ngIf="filter">
+              <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"> Second group </th>
+            </ng-container>
+
+
+            <ng-container matColumnDef="header-row-fourth-group" *ngIf="filter">
+              <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"> Second group </th>
+            </ng-container> -->
+
+
+            <ng-container matColumnDef="header-row-first-group">
+              <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+                <mat-icon style="color:red">cancel_presentation</mat-icon>
+              </th>
+            </ng-container>
+
+            <ng-container matColumnDef="header-row-second-group">
+              <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+                <mat-form-field appearance="outline" class="small-input">
+                  <input matInput placeholder="EMP NO.">
+                </mat-form-field>
+              </th>
+            </ng-container>
+
+            <ng-container matColumnDef="header-row-third-group">
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+                    <mat-form-field appearance="outline">
+                      <input matInput placeholder="Ambit Req No">
+                    </mat-form-field>
+                  </th>
+
+            </ng-container>
+
+            <ng-container matColumnDef="header-row-fourth-group">
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+                    <mat-form-field appearance="outline">
+                      <input matInput placeholder="Location">
+                    </mat-form-field>
+                  </th>
+              </ng-container>
+
+
+            <ng-container matColumnDef="header-row-fifth-group">
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+                    <mat-form-field appearance="outline">
+                      <input matInput placeholder="Company">
+                    </mat-form-field>
+                  </th>
+            </ng-container>
+
+            <ng-container matColumnDef="header-row-sixth-group">
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+                    <mat-form-field appearance="outline">
+                      <input matInput placeholder="Status">
+                    </mat-form-field>
+                  </th>
+            </ng-container>
+
+
+            <ng-container matColumnDef="header-row-seventh-group">
+              <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Completed On">
+                </mat-form-field>
+              </th>
+            </ng-container>
+
+            <ng-container matColumnDef="header-row-eighth-group">
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+                  <mat-form-field appearance="outline">
+                    <input matInput placeholder="Completed By">
+                  </mat-form-field>
+                </th>
+              </ng-container>
+              
+            <ng-container matColumnDef="header-row-ninth-group" class="custom-field">
+              <th mat-header-cell *matHeaderCellDef [attr.colspan]="2">
+              </th>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" style="background-color: #e8ecef;"></tr>
+            <tr mat-header-row *matHeaderRowDef="addNewColumns" style="background-color:white"
+              [ngClass]="{'h0': !filter}"></tr>
+
+
+            <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selection.toggle(row)"></tr>
+          </table>
+        </mat-card>
+      </div>
+    </div>
+  </div>
