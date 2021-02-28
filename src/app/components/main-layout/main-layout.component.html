@@ -1,0 +1,77 @@
+<mat-sidenav-container class="example-sidenav-container bg-white" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  <mat-sidenav #snav mode="side" opened="true" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+    <mat-nav-list>
+      <app-side-navbar></app-side-navbar>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <mat-toolbar-row class="bg-blue">
+        <button mat-icon-button (click)="snav.toggle()">
+          <img class="icons_style" src="../../../assets/img/home.png" alt="sidebar-bg" />
+        </button>
+        <span style="color:grey;font-size: 2rem;">ID Card Admin</span> <span style="font-size: 2rem;"> / Dashoard</span>
+        <span style="flex: 1 1 auto;"></span>
+
+        <div fxShow="true" fxHide.lt-md class="right-menu">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon matBadge="8" style="height:50px;right: -11px;" matBadgeColor="warn">notifications_none</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Notification item 1</button>
+            <button mat-menu-item>Notification item 2</button>
+          </mat-menu>
+          <!-- <a href="#" mat-button>
+            <img class="icons_style" src="../../../assets/img/profile.png" alt="sidebar-bg" />
+          </a> -->
+          <button mat-icon-button>
+            <mat-icon style="width:60px;height: 60px;"><img class="icons_style" src="../../../assets/img/profile.png"
+                alt="sidebar-bg" />
+            </mat-icon>
+          </button>
+          <a href="#" mat-button class="pre-button lh1">
+            <span class="name_style1">Ravi </span><br>
+            <span class="lats_login">ID Card Admin</span>
+          </a>
+          <!-- <a class="far-end" >
+            <span class="space-reducer">Ravi</span>
+            <span class="space-reducer">ID Card Admin</span>
+          </a> -->
+
+          <!-- <p style="font-size: 12px;">
+            Ravi
+            ID Card Admin
+          </p> -->
+          <!-- <a href="#" mat-button>Ravi
+            ID Card Admin</a> -->
+          <!-- <a href="#" mat-button>
+            <mat-icon>person</mat-icon>
+          </a> -->
+          <!-- <a href="#" mat-button>
+            <mat-icon>menu</mat-icon>
+          </a> -->
+        </div>
+      </mat-toolbar-row>
+      <mat-toolbar-row class="bg-blue">
+        <span class="gd_style"> Good Morning </span> &nbsp;&nbsp;&nbsp;
+        <span class="name_style">Pasupathi.S !</span>
+        <span style="flex: 1 1 auto;"></span>
+
+        <div fxShow="true" fxHide.lt-md>
+          <span class="name_style2">Last Logged In :</span>&nbsp;&nbsp;
+          <span class="last-login"> 12/ 25 / 2021 04:30 PM</span>
+        </div>
+      </mat-toolbar-row>
+
+
+
+    </mat-toolbar>
+    <!-- <app-dashboard></app-dashboard> -->
+
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

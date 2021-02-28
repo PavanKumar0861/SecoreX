@@ -1,0 +1,43 @@
+<div class="layout">
+    <div fxLayout.xs="column" fxLayout="row" fxLayoutGap="10px" ngClass.gt-xs="ml-10">
+      <mat-card class="three" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.gt-md="33%">
+        <p class="title">230</p>
+        <p class="count">Card Dispatched</p>
+        <p class="p20">
+          <img src="../../../assets/img/line_graph.png">
+        </p>
+      </mat-card>
+
+      <mat-card class="two" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.gt-md="33%">
+        <p class="title">300</p>
+        <p class="count">Number of Card issued</p>
+        <p class="p20">
+          <img src="../../../assets/img/line_graph.png">
+        </p>
+      </mat-card>
+
+      <mat-card class="one" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.gt-md="33%">
+        <p class="title">30</p>
+        <p class="count">New Card Request</p>
+        <p class="p20">
+          <img src="../../../assets/img/line_graph.png">
+        </p>
+      </mat-card>
+
+    </div>
+  </div>
+
+
+
+
+
+  <div class="layout">
+    <div fxLayout="row" flexLayoutAlign="start end" fxLayoutGap="10px">
+      <mat-card fxFlex="70">
+        <app-line-chart></app-line-chart>
+      </mat-card>
+      <mat-card fxFlex="30">
+        <app-bar-chart></app-bar-chart>
+      </mat-card>
+    </div>
+  </div>
