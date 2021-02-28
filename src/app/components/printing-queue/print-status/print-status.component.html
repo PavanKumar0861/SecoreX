@@ -110,11 +110,11 @@
 
             <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1px"
             style="margin-bottom: 0px !important;">
-            <div fxFlex.sm="60%" fxFlex.md="50%" fxFlex.gt-md="50%" class="search">
+            <div fxFlex.sm="40%" fxFlex.md="40%" fxFlex.gt-md="45%" class="search">
                 <h1 style="color: grey;"> Card List</h1>
             </div>
 
-            <div fxFlex.sm="40%" fxFlex.md="50%" fxFlex.gt-md="50%" class="search">
+            <div fxFlex.sm="60%" fxFlex.md="60%" fxFlex.gt-md="55%" class="search">
                 <button mat-flat-button class="bg-black mr-4 custom-btn" >Printed</button>
                 <button mat-flat-button class="bg-black mr-4 custom-btn" >Change Printed</button>
                 <button mat-stroked-button color="warn" class="br-red mr-4 custom-btn"  >Cancel</button>
@@ -179,7 +179,8 @@
 
             <ng-container class="cd_lst" matColumnDef="status">
               <th class="cd_lst" mat-header-cell *matHeaderCellDef>Status</th>
-              <td class="cd_table" mat-cell *matCellDef="let element">{{ element.status }}</td>
+              <td class="cd_table" mat-cell *matCellDef="let element"><button class="bg-green">
+                {{ element.status }}</button></td>
             </ng-container>
 
             <ng-container matColumnDef="action">

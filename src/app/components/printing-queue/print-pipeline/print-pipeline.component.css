@@ -379,3 +379,11 @@
   .br-red{
       border-color: red;
   }
+  .bg-green{
+    background-color: #cff5d4;
+    border:0px;
+    border-radius:5px;
+    padding: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    }

@@ -1,6 +1,7 @@
-<!-- <div class="row">
+<div class="row">
   <div class="col-md-6">
-    &nbsp;&nbsp;<img class="icons_style" src="../../../assets/img/home.png" alt="sidebar-bg"
+    <img class="icons_style" src="../../../assets/img/rectangle.png" alt="sidebar-bg"  (click)="bgChooseClick(0)"/>
+    &nbsp;&nbsp;<img class="icons_style" src="../../../assets/img/home.png" [routerLink]="['/home']" alt="sidebar-bg"
       (click)="bgChooseClick(0)" />&nbsp;&nbsp;
     <span class="gd_style1"> ID Card Admin / Dashboard </span> </div>
   <div class="col-md-6 last_header">
@@ -15,7 +16,6 @@
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification item 3</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification item 4</a></li>
       </ul>
-      
     </div>
     <div class="dropdown mlr14">
       <a href="#" id="imageDropdown" data-toggle="dropdown">
@@ -27,10 +27,19 @@
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About as</a></li>
       </ul>
     </div>
-    <span class="name_style1">Ravi </span>&nbsp;&nbsp; <br>
+    <span class="name_style1">Ravi </span>&nbsp;&nbsp; <br/>
     <span class="lats_login"> ID Card Admin</span>
     &nbsp;&nbsp;&nbsp;&nbsp;
 
+    <!-- <div class="dropdown">
+      <a href="#" id="imageDropdown" data-toggle="dropdown">
+        <img class="icons_style" src="../../../assets/img/header.png">
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="imageDropdown">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About as</a></li>
+      </ul>
+    </div> -->
   </div>
 
 </div>
@@ -39,5 +48,4 @@
       class="name_style">Pasupathi.S !</span> </div>
   <div class="col-md-6 last_header"><span class="name_style1">Last Logged In :</span>&nbsp;&nbsp; <span
       class="lats_login"> 12/ 25 / 2021 04:30 PM</span></div>
-</div> -->
-
+</div>

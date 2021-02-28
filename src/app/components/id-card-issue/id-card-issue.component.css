@@ -376,3 +376,23 @@
   .mr-4{
       margin-right: 4%;
   }
+
+  
+:host
+::ng-deep
+.custom-field-height
+.mat-form-field-appearance-outline
+.mat-form-field-infix {
+padding: 0.8em 0 0.8em 0 !important;
+}
+.bg-green{
+  background-color: #cff5d4;
+  border:0px;
+  border-radius:5px;
+  padding: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+  }
+  .bg-grey{
+    background-color: grey;
+  }

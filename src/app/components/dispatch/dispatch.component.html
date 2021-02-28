@@ -5,7 +5,7 @@
                     <mat-card class="bg-grey mb-0" style="margin-bottom: 0px !important;">
                         <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
                             style="margin-bottom: 0px !important;">
-                            <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                            <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
                                 <mat-form-field appearance="outline" class="w-90">
                                     <!-- <mat-label>Company</mat-label> -->
                                     <mat-select placeholder="Company">
@@ -17,7 +17,7 @@
                                 </mat-form-field>
                             </div>
 
-                            <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                            <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
                                 <mat-form-field appearance="outline" class="w-90">
                                     <!-- <mat-label>Location</mat-label> -->
                                     <mat-select placeholder="Location">
@@ -29,7 +29,7 @@
                                 </mat-form-field>
                             </div>
 
-                            <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                            <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
                                 <mat-form-field appearance="outline" class="w-90">
                                     <!-- <mat-label>Location</mat-label> -->
                                     <mat-select placeholder="Request Type">
@@ -61,7 +61,7 @@
                                 </mat-form-field>
                             </div>
 
-                            <div fxFlex class="search">
+                            <div fxFlex class="search custom-field-height">
                                 <mat-form-field appearance="outline" class="w-90">
                                     <!-- <mat-label>Location</mat-label> -->
                                     <mat-select placeholder="Card Number">
@@ -73,7 +73,7 @@
                                 </mat-form-field>
                             </div>
                             <!-- .sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%"  -->
-                            <div fxFlex class="search">
+                            <div fxFlex class="search custom-field-height">
                                 <mat-form-field appearance="outline" class="w-90">
                                     <!-- <mat-label>Location</mat-label> -->
                                     <mat-select placeholder="Dispatch To">
@@ -118,11 +118,11 @@
 
                         <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1px"
                             style="margin-bottom: 0px !important;">
-                            <div fxFlex.sm="40%" fxFlex.md="50%" fxFlex.gt-md="35%" class="search">
+                            <div fxFlex.sm="40%" fxFlex.md="50%" fxFlex.gt-md="30%" class="search">
                                 <h1 style="color: grey;"> Card List</h1>
                             </div>
 
-                            <div fxFlex.sm="60%" fxFlex.md="50%" fxFlex.gt-md="65%" class="search">
+                            <div fxFlex.sm="60%" fxFlex.md="50%" fxFlex.gt-md="70%" class="search">
 
                                 <button mat-flat-button class="bg-black mr-2 custom-btn">Print Addresses</button>
                            
@@ -195,17 +195,16 @@
 
                             <ng-container class="cd_lst" matColumnDef="status">
                                 <th class="cd_lst" mat-header-cell *matHeaderCellDef>Status</th>
-                                <td class="cd_table" mat-cell *matCellDef="let element">{{ element.status }}</td>
+                                <td class="cd_table" mat-cell *matCellDef="let element"><button class="bg-green">
+                                    {{ element.status }}</button></td>
                             </ng-container>
 
                             <ng-container matColumnDef="action">
                                 <th class="cd_lst" mat-header-cell *matHeaderCellDef>Action</th>
                                 <td mat-cell *matCellDef="let element">
-                                    &nbsp;&nbsp;<img src="../../../assets/secore/1a.png" matTooltip="Rejected" />
-                                    &nbsp;&nbsp;
-                                    &nbsp;&nbsp;
+                                    <img src="../../../assets/secore/1a.png" matTooltip="Rejected" />
                                     <img src="../../../assets/secore/2a.png" matTooltip="Approved" />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                   
                                     <img src="../../../assets/secore/3.png" matTooltip="View Status" />
                                 </td>
                             </ng-container>

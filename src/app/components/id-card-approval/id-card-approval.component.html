@@ -10,294 +10,218 @@
     <mat-toolbar>
       <app-nav-bar class='nav-bar' title="Dashboard"></app-nav-bar>
     </mat-toolbar> -->
-    <div class="layout">
-      <div class="container">
-        <div class="row dash_sty">
-          <mat-card class="bg-grey mb-0" style="margin-bottom: 0px !important;">
-            <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-              style="margin-bottom: 0px !important;">
-              <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
-                <mat-form-field appearance="outline" class="w-90">
-                  <!-- <mat-label>Company</mat-label> -->
-                  <mat-select placeholder="Company">
-                    <mat-option value="option">company 1</mat-option>
-                    <mat-option value="option">company 2</mat-option>
-                    <mat-option value="option">company 3</mat-option>
-                    <mat-option value="option">company 4</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
+<div class="layout">
+  <div class="container">
+    <div class="row dash_sty">
+      <mat-card class="bg-grey mb-0" style="margin-bottom: 0px !important;">
+        <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
+          style="margin-bottom: 0px !important;">
+          <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
+            <mat-form-field appearance="outline" class="w-90 ">
+              <!-- <mat-label>Company</mat-label> -->
+              <mat-select placeholder="Company">
+                <mat-option value="option">company 1</mat-option>
+                <mat-option value="option">company 2</mat-option>
+                <mat-option value="option">company 3</mat-option>
+                <mat-option value="option">company 4</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
-              <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
-                <mat-form-field appearance="outline" class="w-90">
-                  <!-- <mat-label>Location</mat-label> -->
-                  <mat-select placeholder="Location">
-                    <mat-option value="option">location 1</mat-option>
-                    <mat-option value="option">location 2</mat-option>
-                    <mat-option value="option">location 3</mat-option>
-                    <mat-option value="option">location 4</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
+          <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
+            <mat-form-field appearance="outline" class="w-90">
+              <!-- <mat-label>Location</mat-label> -->
+              <mat-select placeholder="Location">
+                <mat-option value="option">location 1</mat-option>
+                <mat-option value="option">location 2</mat-option>
+                <mat-option value="option">location 3</mat-option>
+                <mat-option value="option">location 4</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
-              <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
-                <mat-form-field appearance="outline" style="color:black" class="w-90">
-                  <input matInput placeholder="Employee Id" />
-                </mat-form-field>
-              </div>
+          <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
+            <mat-form-field appearance="outline" style="color:black" class="w-90">
+              <input matInput placeholder="Employee Id" />
+            </mat-form-field>
+          </div>
 
-              <div fxFlex.sm="25%" fxFlex.md="10%" fxFlex.gt-md="10%" class="search">
-                &nbsp;&nbsp;&nbsp;&nbsp;<button mat-flat-button class="bg-black custom-btn">Search</button>
-              </div>
-
-              <div fxFlex.sm="25%" fxFlex.md="10%" fxFlex.gt-md="10%" class="search">
-                <button mat-stroked-button class="custom-btn">RESET</button>
-              </div>
-            </div>
-            <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-              style="margin-bottom: 0px !important;">
-              <!-- <div *ngIf="isVisible" style="margin-bottom: 0px !important;">
-                <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-                  <div fxFlex.sm="100%" fxFlex.md="60%" fxFlex.gt-md="60%" class="search">
-                    <mat-form-field appearance="outline" class="w-100">
-                      <mat-select placeholder="Request Type">
-                        <mat-option value="option">request 1</mat-option>
-                        <mat-option value="option">request 2</mat-option>
-                        <mat-option value="option">request 3</mat-option>
-                        <mat-option value="option">request 4</mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                </div>
-              </div> -->
-              <div fxFlex.sm="100%" fxFlex.md="90%" fxFlex.gt-md="90%" class="search">
-                <mat-form-field appearance="outline" class="w-90" *ngIf="isVisible">
-                  <!-- <mat-label>Company</mat-label> -->
-                  <mat-select placeholder="Request Type">
-                    <mat-option value="option">request 1</mat-option>
-                    <mat-option value="option">request 2</mat-option>
-                    <mat-option value="option">request 3</mat-option>
-                    <mat-option value="option">request 4</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-              <div fxFlex.sm="20%" fxFlex.md="25%" fxFlex.gt-md="25%">
-                <p *ngIf="advanceVisible" class="ml-10 cd_lst"><u class="advance_search" (click)="advance_click()">+
-                    Advance Search</u></p>
-                <p *ngIf="isVisible" class="ml-10 cd_lst"><u (click)="close_advance_click()">- Close Advance Search</u>
-                </p>
-              </div>
-            </div>
-
-            <ng-template #mymodal let-modal>
-              <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                This is example from ItSolutionStuff.com
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
-              </div>
-            </ng-template>
-          </mat-card>
-
-          <br /><br />
-
-          <mat-card>
-            <div class="title">
-              <mat-card-title class="cd_lst1"> Card List</mat-card-title>
-              <!-- <div class="dropdown">
-                <a href="#" id="imageDropdown" data-toggle="dropdown">
-                  <mat-card-title>
-                    <mat-icon>tune</mat-icon>
-                  </mat-card-title>
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="imageDropdown">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Emp Number</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Approve</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Reject</a></li>
-                  <li role="presentation" class="divider"></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification item 4</a></li>
-                </ul>
-              </div> -->
-              <a (click)="addNewFilter()">
-                <mat-card-title>
-                  <mat-icon>tune</mat-icon>
-                </mat-card-title>
-              </a>
-
-            </div>
-
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-              <!-- The Modal -->
-              <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                      <h4 class="modal-title">Modal Heading</h4>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                      Modal body..
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-              <!-- Checkbox Column -->
-              <ng-container matColumnDef="select">
-                <th mat-header-cell *matHeaderCellDef>
-                  <mat-checkbox (change)="$event ? masterToggle() : null"
-                    [checked]="selection.hasValue() && isAllSelected()"
-                    [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
-                  </mat-checkbox>
-                </th>
-                <td mat-cell *matCellDef="let row">
-                  <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
-                    [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
-                  </mat-checkbox>
-                </td>
-              </ng-container>
-
-              <ng-container matColumnDef="empNo">
-                <th class="cd_lst" mat-header-cell *matHeaderCellDef>Emp No.</th>
-                <td class="cd_table" mat-cell *matCellDef="let element">{{ element.empNo }}</td>
-              </ng-container>
-
-              <ng-container matColumnDef="company">
-                <th class="cd_lst" mat-header-cell *matHeaderCellDef>Company</th>
-                <td class="cd_table" mat-cell *matCellDef="let element">{{ element.company }}</td>
-              </ng-container>
-
-              <ng-container matColumnDef="requestType">
-                <th class="cd_lst" mat-header-cell *matHeaderCellDef>Request Types</th>
-                <td class="cd_table" mat-cell *matCellDef="let element">{{ element.requestType }}</td>
-              </ng-container>
-
-              <ng-container matColumnDef="location">
-                <th class="cd_lst" mat-header-cell *matHeaderCellDef>Location</th>
-                <td mat-cell *matCellDef="let element">{{ element.location }}</td>
-              </ng-container>
-
-              <ng-container class="cd_lst" matColumnDef="status">
-                <th class="cd_lst" mat-header-cell *matHeaderCellDef>Status</th>
-                <td class="cd_table" mat-cell *matCellDef="let element">{{ element.status }}</td>
-              </ng-container>
-
-              <ng-container matColumnDef="action">
-                <th class="cd_lst" mat-header-cell *matHeaderCellDef>Action</th>
-                <td mat-cell *matCellDef="let element">
-                  &nbsp;&nbsp;<img src="../../../assets/secore/1a.png" matTooltip="Rejected" /> &nbsp;&nbsp;
-                  &nbsp;&nbsp;
-                  <img src="../../../assets/secore/2a.png" matTooltip="Approved" /> &nbsp;&nbsp;&nbsp;&nbsp;
-                  <img src="../../../assets/secore/3.png" matTooltip="View Status" />
-                </td>
-              </ng-container>
-
-              <ng-container matColumnDef="idCardView">
-                <th class="cd_lst" mat-header-cell *matHeaderCellDef>ID Card View</th>
-                <td mat-cell *matCellDef="let element">
-                  <img src="../../../assets/secore/4.png" matTooltip="View Photos" />
-                </td>
-              </ng-container>
-              <!-- 
-              <ng-container matColumnDef="header-row-first-group" *ngIf="filter">
-                <th mat-header-cell *matHeaderCellDef 
-                    [attr.colspan]="1"> 
-                  First group 
-                </th>
-              </ng-container>
-              
-            
-              <ng-container matColumnDef="header-row-second-group" *ngIf="filter">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"> Second group </th>
-              </ng-container>
-
-              <ng-container matColumnDef="header-row-third-group" *ngIf="filter">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"> Second group </th>
-              </ng-container>
-
-
-              <ng-container matColumnDef="header-row-fourth-group" *ngIf="filter">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"> Second group </th>
-              </ng-container> -->
-
-
-              <ng-container matColumnDef="header-row-first-group">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
-                  <mat-icon style="color:red">cancel_presentation</mat-icon>
-                </th>
-              </ng-container>
-
-              <ng-container matColumnDef="header-row-second-group">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
-                  <mat-form-field appearance="outline" class="small-input">
-                    <input matInput placeholder="EMP NO.">
-                  </mat-form-field>
-                </th>
-              </ng-container>
-              <ng-container matColumnDef="header-row-third-group">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
-                  <mat-form-field appearance="outline">
-                    <input matInput placeholder="Company">
-                  </mat-form-field>
-                </th>
-              </ng-container>
-
-              <ng-container matColumnDef="header-row-fourth-group">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
-                  <mat-form-field appearance="outline">
-                    <input matInput placeholder="Request Type">
-                  </mat-form-field>
-                </th>
-              </ng-container>
-              <ng-container matColumnDef="header-row-fifth-group">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
-                  <mat-form-field appearance="outline">
-                    <input matInput placeholder="Location">
-                  </mat-form-field>
-                </th>
-              </ng-container>
-              <ng-container matColumnDef="header-row-sixth-group">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
-                  <mat-form-field appearance="outline">
-                    <input matInput placeholder="Status">
-                  </mat-form-field>
-                </th>
-              </ng-container>
-              <ng-container matColumnDef="header-row-sevent-group" class="custom-field">
-                <th mat-header-cell *matHeaderCellDef [attr.colspan]="2">
-                </th>
-              </ng-container>
-
-
-
-              <tr mat-header-row *matHeaderRowDef="displayedColumns" style="background-color: #e8ecef;"></tr>
-              <tr mat-header-row *matHeaderRowDef="addNewColumns" style="background-color:white"
-                [ngClass]="{'h0': !filter}"></tr>
-
-
-              <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selection.toggle(row)"></tr>
-            </table>
-          </mat-card>
+          <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+            <h3 *ngIf="advanceVisible" class="ml-10 cd_lst"><u class="advance_search" (click)="advance_click()">+
+                Advance Search</u></h3>
+            <h3 *ngIf="isVisible" class="ml-10 cd_lst"><u (click)="close_advance_click()">- Close
+                Advance Search</u>
+            </h3>
+          </div>
         </div>
-      </div>
+
+        <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
+          style="margin-bottom: 0px !important;">
+
+          <div fxFlex class="search custom-field-height">
+            <mat-form-field *ngIf="isVisible" appearance="outline" style="color:black" class="w-90">
+              <mat-select placeholder="Request Type">
+                <mat-option value="option">request 1</mat-option>
+                <mat-option value="option">request 2</mat-option>
+                <mat-option value="option">request 3</mat-option>
+                <mat-option value="option">request 4</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+
+          <div fxFlex.sm="50%" fxFlex.md="20%" fxFlex.gt-md="15%" class="search">
+            &nbsp;&nbsp;&nbsp;&nbsp;<button mat-flat-button class="bg-black custom-btn">Search</button>
+          </div>
+
+          <div fxFlex.sm="50%" fxFlex.md="20%" fxFlex.gt-md="15%" class="search">
+            <button mat-stroked-button class="custom-btn">RESET</button>
+          </div>
+        </div>
+
+
+      </mat-card>
+
+      <br /><br />
+
+      <mat-card>
+        <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1px"
+          style="margin-bottom: 0px !important;">
+          <div fxFlex.sm="60%" fxFlex.md="70%" fxFlex.gt-md="70%" class="search">
+            <h1 style="color: grey;"> Card List</h1>
+          </div>
+
+          <div fxFlex.sm="40%" fxFlex.md="30%" fxFlex.gt-md="30%" class="search">
+            <button mat-flat-button class="bg-black mr-4 custom-btn">Approved</button>
+            <button mat-stroked-button color="warn" class="br-red mr-4 custom-btn">Rejected</button>
+            <button mat-raised-button (click)="addNewFilter()">
+              <mat-icon>tune</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                [checked]="selection.hasValue() && isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="empNo">
+            <th class="cd_lst" mat-header-cell *matHeaderCellDef>Emp No.</th>
+            <td class="cd_table" mat-cell *matCellDef="let element">{{ element.empNo }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="company">
+            <th class="cd_lst" mat-header-cell *matHeaderCellDef>Company</th>
+            <td class="cd_table" mat-cell *matCellDef="let element">{{ element.company }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="requestType">
+            <th class="cd_lst" mat-header-cell *matHeaderCellDef>Request Types</th>
+            <td class="cd_table" mat-cell *matCellDef="let element">{{ element.requestType }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="location">
+            <th class="cd_lst" mat-header-cell *matHeaderCellDef>Location</th>
+            <td mat-cell *matCellDef="let element">{{ element.location }}</td>
+          </ng-container>
+
+          <ng-container class="cd_lst" matColumnDef="status">
+            <th class="cd_lst" mat-header-cell *matHeaderCellDef>Status</th>
+            <td class="cd_table" mat-cell *matCellDef="let element"><button class="bg-green">
+              {{ element.status }}</button></td>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th class="cd_lst" mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element">
+              &nbsp;&nbsp;<img src="../../../assets/secore/1a.png" matTooltip="Rejected" /> &nbsp;&nbsp;
+              &nbsp;&nbsp;
+              <img src="../../../assets/secore/2a.png" matTooltip="Approved" />
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="idCardView">
+            <th class="cd_lst" mat-header-cell *matHeaderCellDef>ID Card View</th>
+            <td mat-cell *matCellDef="let element">
+              <img src="../../../assets/secore/5.png" matTooltip="View Photos" />
+            </td>
+          </ng-container>
+         
+
+          <ng-container matColumnDef="header-row-first-group">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+              <mat-icon style="color:red">cancel_presentation</mat-icon>
+            </th>
+          </ng-container>
+
+          <ng-container matColumnDef="header-row-second-group">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+              <mat-form-field appearance="outline" class="small-input">
+                <input matInput placeholder="EMP NO.">
+              </mat-form-field>
+            </th>
+          </ng-container>
+          <ng-container matColumnDef="header-row-third-group">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="Company">
+              </mat-form-field>
+            </th>
+          </ng-container>
+
+          <ng-container matColumnDef="header-row-fourth-group">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="Request Type">
+              </mat-form-field>
+            </th>
+          </ng-container>
+          <ng-container matColumnDef="header-row-fifth-group">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="Location">
+              </mat-form-field>
+            </th>
+          </ng-container>
+          <ng-container matColumnDef="header-row-sixth-group">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="Status">
+              </mat-form-field>
+            </th>
+          </ng-container>
+          <ng-container matColumnDef="header-row-sevent-group" class="custom-field">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="2">
+            </th>
+          </ng-container>
+
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns" style="background-color: #e8ecef;"></tr>
+          <tr mat-header-row *matHeaderRowDef="addNewColumns" style="background-color:white"
+            [ngClass]="{'h0': !filter}"></tr>
+
+
+          <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selection.toggle(row)"></tr>
+        </table>
+      </mat-card>
     </div>
+  </div>
+</div>
 
 
-  <!-- </mat-sidenav-content>
+<!-- </mat-sidenav-content>
 </mat-sidenav-container> -->
