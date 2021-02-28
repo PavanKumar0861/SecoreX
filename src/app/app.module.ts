@@ -29,6 +29,7 @@ import { PrintStatusComponent } from './components/printing-queue/print-status/p
 import { CompletedQueueComponent } from './components/printing-queue/completed-queue/completed-queue.component';
 import { PrinterTemplateComponent } from './modals/printer-template/printer-template.component';
 import { DispatchedCardsDetailsComponent } from './modals/dispatched-cards-details/dispatched-cards-details.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { DispatchedCardsDetailsComponent } from './modals/dispatched-cards-detai
     BrowserAnimationsModule,
     MaterialModule,ChartsModule,
     FlexLayoutModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [
     SettingsService

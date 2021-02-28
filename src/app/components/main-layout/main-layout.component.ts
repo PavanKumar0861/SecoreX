@@ -1,17 +1,18 @@
-import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy,OnInit, ElementRef, ViewChild, VERSION} from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, ElementRef, ViewChild, VERSION } from '@angular/core';
 import { NavService } from 'src/app/services/nav.service';
-
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.css']
 })
-export class MainLayoutComponent implements OnInit,OnDestroy {
+export class MainLayoutComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
-  opened: boolean=true;
-  
+  opened: boolean = true;
+
   // fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 
   // fillerContent = Array.from({length: 50}, () =>
@@ -22,14 +23,33 @@ export class MainLayoutComponent implements OnInit,OnDestroy {
   //      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
 
   private _mobileQueryListener: () => void;
+  breadCrumbs =[]
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private navService: NavService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private navService: NavService,location:Location, router: Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    router.events.subscribe(val => {
+      let path = location.path()
+      console.log(path)
+      if(path == '/home/dashboard'){
+        this.breadCrumbs=[
+          {name:"ID Card Admin",routeLink:'dashboard'},
+          {name:'Dashoard',routeLink:'dashboard'}
+        ]
+        console.log(this.breadCrumbs)
+      }else if(path=='/home/id-card-approval'){
+        this.breadCrumbs=[
+          {name:"ID Card Admin",routeLink:'dashboard'},
+          {name:'ID card Approval',routeLink:'id-card-approval'}
+        ]
+      }
+    });
   }
-  ngOnInit(){
-    
+  router = []
+  ngOnInit() {
+
+
   }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

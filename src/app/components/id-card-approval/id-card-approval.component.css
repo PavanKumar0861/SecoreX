@@ -161,35 +161,6 @@ a {
   padding: 0 8px 2px 8px; */
 }
 
-::ng-deep .one {
-  background: #119bd2;
-  background: -moz-linear-gradient(-45deg, #3bd1bf 0%, #119bd2 100%);
-  background: -webkit-linear-gradient(-45deg, #3bd1bf 0%, #119bd2 100%);
-  background: linear-gradient(135deg, #3bd1bf 0%, #119bd2 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bd1bf', endColorstr='#119bd2', GradientType=1);
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-
-::ng-deep .two {
-  background: #ff875e;
-  background: -moz-linear-gradient(-45deg, #ff875e 1%, #fc629d 100%);
-  background: -webkit-linear-gradient(-45deg, #ff875e 1%, #fc629d 100%);
-  background: linear-gradient(135deg, #ff875e 1%, #fc629d 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff875e', endColorstr='#fc629d', GradientType=1);
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-
-::ng-deep .three {
-  background: #8363f9;
-  background: -moz-linear-gradient(-45deg, #ee70e9 0%, #8363f9 100%);
-  background: -webkit-linear-gradient(-45deg, #ee70e9 0%, #8363f9 100%);
-  background: linear-gradient(135deg, #ee70e9 0%, #8363f9 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee70e9', endColorstr='#8363f9', GradientType=1);
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
 
 /* mat-card {
   margin-bottom: 10px;
@@ -204,7 +175,7 @@ a {
   } */
 .mat-card > :last-child:not(.mat-card-footer),
 .mat-card-content > :last-child:not(.mat-card-footer) {
-  margin-bottom: 75px;
+  margin-bottom: 0px;
 }
 
 table {
@@ -406,4 +377,7 @@ border-radius:5px;
 padding: 6px;
 padding-left: 15px;
 padding-right: 15px;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  height: 0px;
 }

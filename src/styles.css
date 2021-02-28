@@ -700,14 +700,22 @@ body {
 .mat-form-field-appearance-outline .mat-form-field-infix {
   padding: 0.2em 0 1em 0;
 }
-
-.mat-select-arrow {
+.mat-form-field .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix .mat-select-trigger .mat-select-arrow-wrapper .mat-select-arrow {
   width: 0;
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid;
-  margin: 10px 4px 0 4px !important;
+  margin: 10px 4px 0 4px;
+}
+
+.mat-paginator-page-size .mat-form-field .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix .mat-select-trigger .mat-select-arrow-wrapper .mat-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin: 0 4px;
 }
 
 .numberCircle {
@@ -718,3 +726,15 @@ body {
   font-size: 32px;
   border: 2px solid #666;
 }
+
+.mat-paginator-page-size {
+  display: flex;
+  align-items: baseline;
+  margin-right: 8px;
+  margin-top: -15px;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  height: 0px !important;
+}
+

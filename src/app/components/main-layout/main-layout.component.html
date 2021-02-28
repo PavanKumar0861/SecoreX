@@ -12,7 +12,8 @@
         <button mat-icon-button (click)="snav.toggle()">
           <img class="icons_style" src="../../../assets/img/home.png" alt="sidebar-bg" />
         </button>
-        <span style="color:grey;font-size: 2rem;">ID Card Admin</span> <span style="font-size: 2rem;"> / Dashoard</span>
+        <span *ngFor = "let item of breadCrumbs;index as i;" style="color:grey;font-size: 2rem;" [ngStyle]="{'color': i==0 ? 'grey':'blue'}" routerLink="{{item.routeLink}}"><span *ngIf="i>0">/</span>{{item.name}}</span> 
+        <!-- <span style="font-size: 2rem;"> / Dashoard</span> -->
         <span style="flex: 1 1 auto;"></span>
 
         <div fxShow="true" fxHide.lt-md class="right-menu">

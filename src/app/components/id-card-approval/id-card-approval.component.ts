@@ -11,26 +11,6 @@ const ELEMENT_DATA: any[] = [
   { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
   { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
   { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' }
-
 ];
 
 
