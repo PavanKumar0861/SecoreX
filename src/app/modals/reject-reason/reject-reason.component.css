@@ -1,0 +1,38 @@
+.fill-spacer {
+    flex: 1 1 auto;
+  }
+  .body{
+    padding:2%;
+  
+  }
+  .custom-btn {
+    padding-left: 3em;
+    padding-right:3em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    margin-bottom: 1em;
+    margin: auto;
+    display: flex;
+    }
+    .end{
+      /* margin: auto; */
+      display: flex;
+      justify-content:flex-end;
+    }
+    .bg-black {
+      background-color: black;
+      color: white;
+      }
+      .br-red{
+        border-color: red;
+      }
+      .ml-4{
+        margin-left: 4%;
+      }
+      .mt-4{
+        margin-top: 4%;
+      }
+
+      .w-100{
+          width:100%
+      }

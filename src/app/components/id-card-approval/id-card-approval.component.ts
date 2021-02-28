@@ -4,6 +4,9 @@ import { NavService } from 'src/app/services/nav.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 import {PageEvent} from '@angular/material/paginator';
+import { RejectReasonComponent } from 'src/app/modals/reject-reason/reject-reason.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 const ELEMENT_DATA: any[] = [
   { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
@@ -36,7 +39,7 @@ export class IdCardApprovalComponent implements OnInit {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private navService: NavService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private navService: NavService,public dialog: MatDialog) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -134,6 +137,14 @@ export class IdCardApprovalComponent implements OnInit {
     'header-row-second-group','header-row-third-group',
     'header-row-fourth-group', 
     'header-row-fifth-group','header-row-sixth-group','header-row-sevent-group']:[]
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(RejectReasonComponent, { panelClass: 'custom-dialog-container' });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

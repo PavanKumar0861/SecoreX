@@ -197,7 +197,7 @@
           <ng-container matColumnDef="action">
             <th class="cd_lst" mat-header-cell *matHeaderCellDef>Action</th>
             <td mat-cell *matCellDef="let element">
-              &nbsp;&nbsp;<img src="../../../assets/secore/1a.png" matTooltip="Rejected" /> &nbsp;&nbsp;
+              &nbsp;&nbsp;<img src="../../../assets/secore/1a.png" matTooltip="Rejected" (click)="openDialog()"/> &nbsp;&nbsp;
               &nbsp;&nbsp;
               <img src="../../../assets/secore/2a.png" matTooltip="Approved" /> &nbsp;&nbsp;&nbsp;&nbsp;
               <img src="../../../assets/secore/3.png" matTooltip="View Status" />

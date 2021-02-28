@@ -735,6 +735,9 @@ body {
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  height: 0px !important;
+  bottom: 6px;
 }
 
+/* .cdk-overlay-pane{
+  margin-top: 24px;
+} */

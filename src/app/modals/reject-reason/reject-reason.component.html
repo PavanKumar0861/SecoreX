@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <span>Reject Reason</span>
+  <span class="fill-spacer"></span>
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" mat-button mat-dialog-close>
+    <mat-icon color="warn">cancel</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="body">
+
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    
+    <div fxFlex class="search">
+      <!-- <mat-form-field appearance="outline" style="color:black" class="w-90">
+        <input matInput placeholder="Enter Here" />
+      </mat-form-field> -->
+
+      <mat-form-field appearance="outline" class="w-100">
+        <!-- <mat-label>Company</mat-label> -->
+        <mat-select placeholder="Reason">
+          <mat-option value="option">Photo not clear</mat-option>
+          <mat-option value="option">Invalid number</mat-option>
+          <mat-option value="option">Address not verified</mat-option>
+          <mat-option value="option">Background verification failed</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <mat-icon>right</mat-icon> -->
+    </div>
+  </div>
+
+
+  <div class="end mt-4">
+    <div class="search">
+      <button mat-flat-button class="bg-black custom-btn" mat-button mat-dialog-close>Ok</button>
+    </div>
+  </div>
+</div>

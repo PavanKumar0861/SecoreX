@@ -30,6 +30,7 @@ import { CompletedQueueComponent } from './components/printing-queue/completed-q
 import { PrinterTemplateComponent } from './modals/printer-template/printer-template.component';
 import { DispatchedCardsDetailsComponent } from './modals/dispatched-cards-details/dispatched-cards-details.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { RejectReasonComponent } from './modals/reject-reason/reject-reason.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     PrintStatusComponent,
     CompletedQueueComponent,
     PrinterTemplateComponent,
-    DispatchedCardsDetailsComponent
+    DispatchedCardsDetailsComponent,
+    RejectReasonComponent
   ],
   imports: [
     BrowserModule,

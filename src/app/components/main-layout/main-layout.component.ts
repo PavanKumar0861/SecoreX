@@ -43,6 +43,11 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
           {name:"ID Card Admin",routeLink:'dashboard'},
           {name:'ID card Approval',routeLink:'id-card-approval'}
         ]
+      }else if(path=='/home/dispatch'){
+        this.breadCrumbs=[
+          {name:"ID Card Admin",routeLink:'dashboard'},
+          {name:'Dispatch',routeLink:'dispatch'}
+        ]
       }
     });
   }
