@@ -1,14 +1,18 @@
 <mat-sidenav-container class="example-sidenav-container bg-white" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  
   <mat-sidenav #snav mode="side" opened="true" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
     <mat-nav-list>
       <app-side-navbar></app-side-navbar>
     </mat-nav-list>
-
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar>
-      <mat-toolbar-row class="bg-blue">
+      <app-nav-bar class='nav-bar' title="Dashboard"></app-nav-bar>
+    </mat-toolbar>
+    <!-- <mat-toolbar> -->
+      <!-- <app-nav-bar></app-nav-bar> -->
+      <!-- <mat-toolbar-row class="bg-blue" style="margin: auto;">
         <button mat-icon-button (click)="snav.toggle()">
           <img class="icons_style" src="../../../assets/img/home.png" alt="sidebar-bg" />
         </button>
@@ -19,7 +23,7 @@
           <button mat-button [matMenuTriggerFor]="menu">
             <mat-icon matBadge="8" style="height:50px;right: -11px;" matBadgeColor="warn">notifications_none</mat-icon>
           </button>
-          <mat-menu #menu="matMenu">
+          <mat-menu #notification="matMenu">
             <button mat-menu-item>Notification item 1</button>
             <button mat-menu-item>Notification item 2</button>
           </mat-menu>
@@ -39,19 +43,11 @@
             <span class="space-reducer">Ravi</span>
             <span class="space-reducer">ID Card Admin</span>
           </a> -->
+          <!-- <button mat-icon-button>
+            <mat-icon>apps</mat-icon>
+            <span id="Dashboard">Dashboard</span>
+          </button>
 
-          <!-- <p style="font-size: 12px;">
-            Ravi
-            ID Card Admin
-          </p> -->
-          <!-- <a href="#" mat-button>Ravi
-            ID Card Admin</a> -->
-          <!-- <a href="#" mat-button>
-            <mat-icon>person</mat-icon>
-          </a> -->
-          <!-- <a href="#" mat-button>
-            <mat-icon>menu</mat-icon>
-          </a> -->
         </div>
       </mat-toolbar-row>
       <mat-toolbar-row class="bg-blue">
@@ -70,8 +66,10 @@
     </mat-toolbar>
     <!-- <app-dashboard></app-dashboard> -->
 
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
 
-    <router-outlet></router-outlet>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

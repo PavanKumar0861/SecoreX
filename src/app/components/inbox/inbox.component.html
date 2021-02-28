@@ -4,7 +4,7 @@
         <mat-card class="bg-grey mb-0" style="margin-bottom: 0px !important;">
             <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
                 style="margin-bottom: 0px !important;">
-                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
                     <mat-form-field appearance="outline" class="w-90">
                         <!-- <mat-label>Company</mat-label> -->
                         <mat-select placeholder="Company">
@@ -16,7 +16,7 @@
                     </mat-form-field>
                 </div>
 
-                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
                     <mat-form-field appearance="outline" class="w-90">
                         <!-- <mat-label>Location</mat-label> -->
                         <mat-select placeholder="Location">
@@ -28,7 +28,7 @@
                     </mat-form-field>
                 </div>
 
-                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search">
+                <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
                     <mat-form-field appearance="outline" class="w-90">
                         <input matInput placeholder="Ambit Request No" />
                     </mat-form-field>
@@ -48,13 +48,13 @@
 
             <div *ngIf="isVisible" fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center"
                 fxLayoutGap="10px" style="margin-bottom: 0px !important;">
-                <div fxFlex class="search">
+                <div fxFlex class="search custom-field-height">
                     <mat-form-field appearance="outline" style="color:black" class="w-90">
                         <input matInput placeholder="Employee ID" />
                     </mat-form-field>
                 </div>
 
-                <div fxFlex class="search">
+                <div fxFlex class="search custom-field-height">
                     <mat-form-field appearance="outline" class="w-90">
                         <!-- <mat-label>Location</mat-label> -->
                         <mat-select placeholder="Request Type">
@@ -66,7 +66,7 @@
                     </mat-form-field>
                 </div>
                 <!-- .sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%"  -->
-                <div fxFlex class="search">
+                <div fxFlex class="search custom-field-height">
                     <mat-form-field appearance="outline" class="w-90">
                         <!-- <mat-label>Location</mat-label> -->
                         <mat-select placeholder="Status">
@@ -107,28 +107,21 @@
         <br /><br />
 
         <mat-card>
-            <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1px"
+          
+            <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px"
             style="margin-bottom: 0px !important;">
-            <div fxFlex.sm="60%" fxFlex.md="80%" fxFlex.gt-md="80%" class="search">
+            <div fxFlex.sm="60%" fxFlex.md="70%" fxFlex.gt-md="80%" class="search">
                 <h1 style="color: grey;"> Card List</h1>
             </div>
 
-            <div fxFlex.sm="40%" fxFlex.md="20%" fxFlex.gt-md="20%" class="search">
-                <button mat-flat-button class="bg-black mr-2 custom-btn" >View Status</button>
-       
-                <button mat-raised-button  (click)="addNewFilter()">  <mat-icon>tune</mat-icon></button>
-         
-
-              
+            <div fxFlex.sm="40%" fxFlex.md="30%" fxFlex.gt-md="20%" class="search">
+                <button mat-flat-button class="bg-black custom-btn  mr-4" >View Status</button>       
+                <button mat-raised-button  (click)="addNewFilter()">  <mat-icon>tune</mat-icon></button>             
             </div>
-
-
-
         </div>
 
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-        
+   
             <!-- Checkbox Column -->
             <ng-container matColumnDef="select">
               <th mat-header-cell *matHeaderCellDef>
@@ -145,70 +138,45 @@
             </ng-container>
 
             <ng-container matColumnDef="empNo">
-              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Emp No.</th>
-              <td class="cd_table" mat-cell *matCellDef="let element">{{ element.empNo }}</td>
+              <th  mat-header-cell *matHeaderCellDef>Emp No.</th>
+              <td  mat-cell *matCellDef="let element">{{ element.empNo }}</td>
             </ng-container>
 
             <ng-container matColumnDef="company">
-              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Company</th>
-              <td class="cd_table" mat-cell *matCellDef="let element">{{ element.company }}</td>
+              <th  mat-header-cell *matHeaderCellDef>Company</th>
+              <td  mat-cell *matCellDef="let element">{{ element.company }}</td>
             </ng-container>
 
             
             <ng-container matColumnDef="ambitRequestNo">
-                <th class="cd_lst" mat-header-cell *matHeaderCellDef>Ambit Request No</th>
+                <th  mat-header-cell *matHeaderCellDef>Ambit Request No</th>
                 <td mat-cell *matCellDef="let element">
                 {{element.ambitRequestNo}}
                 </td>
               </ng-container>
 
             <ng-container matColumnDef="requestType">
-              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Request Types</th>
-              <td class="cd_table" mat-cell *matCellDef="let element">{{ element.requestType }}</td>
+              <th  mat-header-cell *matHeaderCellDef>Request Types</th>
+              <td  mat-cell *matCellDef="let element">{{ element.requestType }}</td>
             </ng-container>
 
             <ng-container matColumnDef="location">
-              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Location</th>
+              <th  mat-header-cell *matHeaderCellDef>Location</th>
               <td mat-cell *matCellDef="let element">{{ element.location }}</td>
             </ng-container>
 
-            <ng-container class="cd_lst" matColumnDef="status">
-              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Status</th>
-              <td class="cd_table" mat-cell *matCellDef="let element">{{ element.status }}</td>
+            <ng-container  matColumnDef="status">
+              <th  mat-header-cell *matHeaderCellDef>Status</th>
+              <td  mat-cell *matCellDef="let element"><button class="bg-green">
+                {{ element.status }}</button></td>
             </ng-container>
 
             <ng-container matColumnDef="action">
-              <th class="cd_lst" mat-header-cell *matHeaderCellDef>Action</th>
+              <th  mat-header-cell *matHeaderCellDef>Action</th>
               <td mat-cell *matCellDef="let element">
-                &nbsp;&nbsp;<img src="../../../assets/secore/1a.png" matTooltip="Rejected" />
-                <!-- &nbsp;&nbsp;
-                <img src="../../../assets/secore/2a.png" matTooltip="Approved" /> &nbsp;&nbsp;&nbsp;&nbsp;
-                <img src="../../../assets/secore/3.png" matTooltip="View Status" /> -->
+                <img src="../../../assets/secore/eye.png" matTooltip="view" /> &nbsp;
               </td>
             </ng-container>
-
-            <!-- 
-            <ng-container matColumnDef="header-row-first-group" *ngIf="filter">
-              <th mat-header-cell *matHeaderCellDef 
-                  [attr.colspan]="1"> 
-                First group 
-              </th>
-            </ng-container>
-            
-          
-            <ng-container matColumnDef="header-row-second-group" *ngIf="filter">
-              <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"> Second group </th>
-            </ng-container>
-
-            <ng-container matColumnDef="header-row-third-group" *ngIf="filter">
-              <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"> Second group </th>
-            </ng-container>
-
-
-            <ng-container matColumnDef="header-row-fourth-group" *ngIf="filter">
-              <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"> Second group </th>
-            </ng-container> -->
-
 
             <ng-container matColumnDef="header-row-first-group">
               <th mat-header-cell *matHeaderCellDef [attr.colspan]="1" class="custom-field">

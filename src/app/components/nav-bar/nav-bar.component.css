@@ -1,4 +1,4 @@
-/* .nav-bar{
+.nav-bar{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -45,7 +45,8 @@
   .lats_login{
     font-size: 14px;
     font-family: "Montserrat-Regular";
-    justify-content: flex-end;align-items: flex-end;
+    justify-content: flex-end;
+    align-items: flex-end;
   
   }
   
@@ -77,33 +78,4 @@
   .mlr14{
     margin-left: 14px;
     margin-right: 14px;
-  } */
-
-  .menu-spacer {
-    flex: 1 1 auto;
   }
-
-  a{
-    padding-top: 0!important;
-  }
-
-  .text-color-white a{
-    color: #ffffff;
-  }
- 
-  mat-form-field { 
-    font-size: 15px;
-  }
-  
-   .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: white !important; 
-  }
- 
- .mat-input-element::placeholder{
-  color: white;
-  }
-  .mt-10{
-  margin-top: 10px;
-  }
-
-  

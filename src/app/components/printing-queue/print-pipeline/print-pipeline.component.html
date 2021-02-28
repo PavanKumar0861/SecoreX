@@ -133,7 +133,8 @@
 
                             <ng-container class="cd_lst" matColumnDef="status">
                                 <th class="cd_lst" mat-header-cell *matHeaderCellDef>Status</th>
-                                <td class="cd_table" mat-cell *matCellDef="let element">{{ element.status }}</td>
+                                <td class="cd_table" mat-cell *matCellDef="let element"><button class="bg-green">
+                                    {{ element.status }}</button></td>
                             </ng-container>
                             
                             <ng-container matColumnDef="previewCard">

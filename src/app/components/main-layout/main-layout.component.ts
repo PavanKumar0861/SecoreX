@@ -11,6 +11,7 @@ import { NavService } from 'src/app/services/nav.service';
 export class MainLayoutComponent implements OnInit,OnDestroy {
   mobileQuery: MediaQueryList;
   opened: boolean=true;
+  
   // fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 
   // fillerContent = Array.from({length: 50}, () =>

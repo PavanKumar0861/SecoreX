@@ -319,36 +319,41 @@ td.mat-cell {
     width: calc(100% - 2.5rem);
     
     } */
-:host ::ng-deep .custom-field .mat-form-field-wrapper {
-  margin: 0 !important;
-  padding: 0.34375em !important;
-}
+    :host ::ng-deep .custom-field .mat-form-field-wrapper {
+    margin: 0 !important;
+    padding: 0.34375em !important;
+    }
+    
+    .w-100 {
+    width: 100% !important;
+    }
+    
+    .w-90 {
+    width: 90%;
+    }
+    
+    .custom-btn {
+    padding-left: 3em;
+    padding-right:3em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    margin-bottom: 1em;
+    text-align: center;
+    }
+  
+    ::ng-deep 
+    .mat-card[_ngcontent-yad-c184] > [_ngcontent-yad-c184]:last-child:not(.mat-card-footer), .mat-card-content[_ngcontent-yad-c184] > [_ngcontent-yad-c184]:last-child:not(.mat-card-footer) {
+      margin-bottom: 0px !important;
+  }
 
-.w-100 {
-  width: 100% !important;
-}
-
-.w-90 {
-  width: 90%;
-}
-
-.custom-btn {
-  padding-left: 3em;
-  padding-right: 3em;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-  margin-bottom: 1em;
-  text-align: center;
-}
-
-::ng-deep
-  .mat-card[_ngcontent-yad-c184]
-  > [_ngcontent-yad-c184]:last-child:not(.mat-card-footer),
-.mat-card-content[_ngcontent-yad-c184]
-  > [_ngcontent-yad-c184]:last-child:not(.mat-card-footer) {
-  margin-bottom: 0px !important;
-}
-
-.mr-4 {
-  margin-right: 4%;
-}
+  .mr-4{
+      margin-right: 4%;
+  }
+  .bg-green{
+    background-color: #cff5d4;
+    border:0px;
+    border-radius:5px;
+    padding: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    }
