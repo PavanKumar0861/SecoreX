@@ -3,12 +3,15 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit, ElementRef, ViewChild,
 import { NavService } from 'src/app/services/nav.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
+import {CommonService} from '../../services/common.service';
+import {IdCardService} from '../../services/IdCard.service';
+import {PageEvent,MatPaginator} from '@angular/material/paginator';
 
 const ELEMENT_DATA: any[] = [
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Submitted', action: 'edit', ambitRequestNo: 2 },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Submitted', action: 'edit', ambitRequestNo: 4 },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Submitted', action: 'edit', ambitRequestNo: 3 },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Submitted', action: 'edit', ambitRequestNo: 2 }
+  // { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Submitted', action: 'edit', ambitRequestNo: 2 },
+  // { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Submitted', action: 'edit', ambitRequestNo: 4 },
+  // { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Submitted', action: 'edit', ambitRequestNo: 3 },
+  // { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Submitted', action: 'edit', ambitRequestNo: 2 }
 
 ];
 @Component({
@@ -19,18 +22,27 @@ const ELEMENT_DATA: any[] = [
 export class InboxComponent implements OnInit {
   mobileQuery: MediaQueryList;
   opened: boolean = true;
-  // fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
-
-  // fillerContent = Array.from({length: 50}, () =>
-  //     `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-  //      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-  //      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-  //      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-  //      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
+  company: any[];
+location: any[];
+txtRemarksAdmin:'';
+employeeNo: any;
+searchfilter = {
+  txtReqStatus:'',
+  txtEmpNo:'',
+  txtCompany:'',
+  txtReasonForApply:'',
+  txtCurrentLocationApplied:'',
+  txtCardNo:'',
+  txtCourierTrackingNo:'',
+  intReqNo:'',
+  flgPreferredAddress:''
+}
+offset:any;
+@ViewChild(MatPaginator) paginator: MatPaginator;
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private navService: NavService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private navService: NavService,private IdCardService: IdCardService,private commonsercive:CommonService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -38,8 +50,137 @@ export class InboxComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+    this.readProducts();
+    this.readCompany();
+    this.readLocation();
   }
+
+  readCompany(): void {
+    const data = {
+      name: 'GetCompanies',
+    };
+    this.commonsercive.readallCompany(data)
+      .subscribe(
+        Response => {
+          //this.IdCardService = products;
+          this.company = Response;
+          
+        },
+        error => {
+          console.log(error);
+        });
+      
+      }
+
+      readLocation(): void {
+        const data = {
+          name: 'GetLocations',
+        };
+        this.commonsercive.readallLocation(data)
+          .subscribe(
+            Response => {
+              //this.IdCardService = products;
+              this.location = Response;
+            },
+            error => {
+              console.log(error);
+            });
+          
+          }
+
+
+  readProducts(): void {
+    const data = {
+      name: 'S',
+    };
+    this.IdCardService.readAll(data)
+      .subscribe(
+        products => {
+          
+          for(let i=0;i<products.length;i++)
+          {
+            if(products[i].txtReqStatus=='S')
+            {
+              products[i].txtReqStatus='Submitted';
+            }
+            if(products[i].txtReasonForApply=='F')
+            {
+              products[i].txtReasonForApply='Damage';
+            }
+            else if(products[i].txtReasonForApply=='L')
+            {
+              products[i].txtReasonForApply='Lost';
+            }
+            else
+            {
+              products[i].txtReasonForApply='New';
+            }
+            
+          }
+
+          this.dataSource.data=products;  
+          this.dataSource.paginator=this.paginator;       
+          console.log(this.dataSource);
+        },
+        error => {
+          console.log(error);
+        });
+      
+      }
+
+      search():void{
+        const data = {
+          txtReqStatus: this.searchfilter.txtReqStatus,
+          txtEmpNo: this.searchfilter.txtEmpNo,
+          txtCompany:this.searchfilter.txtCompany,
+          txtReasonForApply:this.searchfilter.txtReasonForApply,
+          txtCurrentLocationApplied:this.searchfilter.txtCurrentLocationApplied,
+        };
+        this.IdCardService.search(data)
+        .subscribe(
+          products => {
+            for(let i=0;i<products.length;i++)
+          {
+            if(products[i].txtReqStatus=='S')
+            {
+              products[i].txtReqStatus='Submitted';
+            }
+            if(products[i].txtReasonForApply=='F')
+            {
+              products[i].txtReasonForApply='Damage';
+            }
+            else if(products[i].txtReasonForApply=='L')
+            {
+              products[i].txtReasonForApply='Lost';
+            }
+            else
+            {
+              products[i].txtReasonForApply='New';
+            }
+            
+          }
+            this.dataSource.data=products;       
+
+          },
+          error => {
+            console.log(error);
+          });
+      }
+
+      handleClear():void{
+        this.searchfilter.txtCompany='';
+        this.searchfilter.txtCurrentLocationApplied='';
+        this.searchfilter.txtEmpNo='';
+        this.searchfilter.txtReasonForApply='';
+        this.searchfilter.txtReqStatus='';
+      }
+
+      getNext(event: PageEvent) {
+        this.offset = event.pageSize * event.pageIndex;
+        //alert(this.offset);
+        // call your api function here with the offset
+      }
+
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }

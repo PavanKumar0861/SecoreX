@@ -3,17 +3,30 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit, ElementRef, ViewChild,
 import { NavService } from 'src/app/services/nav.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
-import {PageEvent} from '@angular/material/paginator';
+import {PageEvent,MatPaginator} from '@angular/material/paginator';
 import { RejectReasonComponent } from 'src/app/modals/reject-reason/reject-reason.component';
 import { MatDialog } from '@angular/material/dialog';
+import {CommonService} from '../../services/common.service';
+import {IdCardService} from '../../services/IdCard.service';
+import { FormBuilder,AbstractControl } from '@angular/forms';
+import { EmployeePhotoComponent } from 'src/app/modals/employee-photo/employee-photo.component';
+import { EmployeeDetailsComponent } from 'src/app/modals/employee-details/employee-details.component';
 
+
+export interface PeriodicElement {
+  empno: string;
+  company: number;
+  rtype: number;
+  location: string;
+  status: string;
+}
 
 const ELEMENT_DATA: any[] = [
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
-  { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
+  // { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
+  // { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
+  // { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
+  // { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
+  // { empNo: 480331, company: 'INFSYS', requestType: 'Damaged Card', location: 'Bangalore', status: 'Approved', action: 'edit', idCardView: 'no' },
 ];
 
 
@@ -28,21 +41,60 @@ export class IdCardApprovalComponent implements OnInit {
   length = 100;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
-  // fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
+  company: any[];
+  image: any[];
+location: any[];
+txtRemarksAdmin:'';
+employeeNo: any;
+searchfilter = {
+  txtReqStatus:'',
+  txtEmpNo:'',
+  txtCompany:'',
+  txtReasonForApply:'',
+  txtCurrentLocationApplied:'',
+  txtCardNo:'',
+  txtCourierTrackingNo:'',
+  intReqNo:'',
+  flgPreferredAddress:''
+}
+offset:any;
+@ViewChild(MatPaginator) paginator: MatPaginator;
+readonly formControl: AbstractControl;
+selectedRow = new Array<any>();
 
-  // fillerContent = Array.from({length: 50}, () =>
-  //     `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-  //      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-  //      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-  //      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-  //      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
+
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private navService: NavService,public dialog: MatDialog) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private navService: NavService,public dialog: MatDialog,private IdCardService: IdCardService,private commonsercive:CommonService,formBuilder: FormBuilder) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+
+    this.dataSource.filterPredicate = ((data, filter) => {
+      //alert(filter.position)
+      const a = !filter.empno || data.txtEmpNo == filter.empno;
+      const b = !filter.company || data.txtCompany.toLowerCase() ==filter.company;
+      // const b = !filter.name || data.txtCompany.toLowerCase().includes(filter.name);
+      const c = !filter.rtype || data.txtReasonForApply.toLowerCase() == filter.rtype;
+      const d = !filter.location || data.txtCurrentLocationApplied.toLowerCase() == filter.location;
+      const f = !filter.status || data.txtReqStatus.toLowerCase() == filter.status;
+      //alert(a)
+      return a && b && c && d && f;
+    }) as (PeriodicElement, string) => boolean;
+
+    this.formControl = formBuilder.group({
+      empno: '',
+  company: '',
+  rtype: '',
+  location: '',
+  status: '',
+    })
+    this.formControl.valueChanges.subscribe(value => {
+      const filter = {...value} as string;
+      this.dataSource.filter = filter;
+    });
+
   }
 
   pageEvent: PageEvent;
@@ -53,8 +105,210 @@ export class IdCardApprovalComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    
+    this.readProducts();
+    this.readCompany();
+    this.readLocation();
   }
+
+  readCompany(): void {
+    const data = {
+      name: 'GetCompanies',
+    };
+    this.commonsercive.readallCompany(data)
+      .subscribe(
+        Response => {
+          //this.IdCardService = products;
+          this.company = Response;
+          
+        },
+        error => {
+          console.log(error);
+        });
+      
+      }
+
+      readLocation(): void {
+        const data = {
+          name: 'GetLocations',
+        };
+        this.commonsercive.readallLocation(data)
+          .subscribe(
+            Response => {
+              //this.IdCardService = products;
+              this.location = Response;
+            },
+            error => {
+              console.log(error);
+            });
+          
+          }
+
+
+  readProducts(): void {
+    const data = {
+      name: 'S',
+    };
+    this.IdCardService.readAll(data)
+      .subscribe(
+        products => {
+          
+          for(let i=0;i<products.length;i++)
+          {
+            if(products[i].txtReqStatus=='S')
+            {
+              products[i].txtReqStatus='Submitted';
+            }
+            if(products[i].txtReasonForApply=='F')
+            {
+              products[i].txtReasonForApply='Damage';
+            }
+            else if(products[i].txtReasonForApply=='L')
+            {
+              products[i].txtReasonForApply='Lost';
+            }
+            else
+            {
+              products[i].txtReasonForApply='New';
+            }
+            
+          }
+
+          this.dataSource.data=products;  
+          this.dataSource.paginator=this.paginator;       
+          console.log(this.dataSource);
+        },
+        error => {
+          console.log(error);
+        });
+      
+      }
+
+      search():void{
+        const data = {
+          txtReqStatus: 'S',
+          txtEmpNo: this.searchfilter.txtEmpNo,
+          txtCompany:this.searchfilter.txtCompany,
+          txtReasonForApply:this.searchfilter.txtReasonForApply,
+          txtCurrentLocationApplied:this.searchfilter.txtCurrentLocationApplied,
+        };
+        this.IdCardService.search(data)
+        .subscribe(
+          products => {
+            for(let i=0;i<products.length;i++)
+          {
+            if(products[i].txtReqStatus=='S')
+            {
+              products[i].txtReqStatus='Submitted';
+            }
+            if(products[i].txtReasonForApply=='F')
+            {
+              products[i].txtReasonForApply='Damage';
+            }
+            else if(products[i].txtReasonForApply=='L')
+            {
+              products[i].txtReasonForApply='Lost';
+            }
+            else
+            {
+              products[i].txtReasonForApply='New';
+            }
+            
+          }
+            this.dataSource.data=products;       
+
+          },
+          error => {
+            console.log(error);
+          });
+      }
+
+      handleClear():void{
+        this.searchfilter.txtCompany='';
+        this.searchfilter.txtCurrentLocationApplied='';
+        this.searchfilter.txtEmpNo='';
+        this.searchfilter.txtReasonForApply='';
+      }
+
+      getNext(event: PageEvent) {
+        this.offset = event.pageSize * event.pageIndex;
+        alert(this.offset);
+        // call your api function here with the offset
+      }
+      onChange(row: any) {
+        //alert(row);selectedRow
+        if (this.selectedRow === undefined || this.selectedRow.length === 0) {
+          this.selectedRow.push(row);
+        } else if (this.selectedRow.includes(row)) {
+          this.selectedRow = this.selectedRow.filter(
+            x => x.payment_reference !== row.payment_reference);
+        } else {
+          this.selectedRow.push(row);
+        }
+
+        console.log(row);
+      }
+      View():void {
+        //alert(this.selectedRow[0].intReqNo);
+        console.log(this.selectedRow);
+      }
+      Approved(row): void {
+        const data = {
+          intReqNo: row.intReqNo,
+          txtReqStatus:'A'
+          
+        };
+        
+        console.log('Row clicked: ', row);
+        this.IdCardService.CardApproved(data)
+          .subscribe(
+            response => {
+              console.log(response);
+              if(response!=null)
+              {
+                alert("Approved");
+                this.readProducts();
+                // alert(response);
+ 
+              }
+              else
+              {
+                
+              }
+            },
+            error => {
+              console.log(error);
+            });
+      }
+
+      Reject(data): void {
+        // const data = {
+        //   intReqNo: row.intReqNo,
+        //   txtReqStatus:'R'
+          
+        // };
+        
+        //console.log('Row clicked: ', row);
+        this.IdCardService.CardReject(data)
+          .subscribe(
+            response => {
+              console.log(response);
+              if(response!=null)
+              {
+                alert("Rejected");
+                this.readProducts();
+                // alert(response);
+ 
+              }
+              else
+              {
+                
+              }
+            },
+            error => {
+              console.log(error);
+            });
+      }
+
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
@@ -114,23 +368,7 @@ export class IdCardApprovalComponent implements OnInit {
     }
   }
 
-  // open(content) {
-  //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-  //     this.closeResult = `Closed with: ${result}`;
-  //   }, (reason) => {
-  //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-  //   });
-  // }
 
-  // private getDismissReason(reason: any): string {
-  //   if (reason === ModalDismissReasons.ESC) {
-  //     return 'by pressing ESC';
-  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-  //     return 'by clicking on a backdrop';
-  //   } else {
-  //     return  `with: ${reason}`;
-  //   }
-  // }
   addNewFilter(){
     this.filter=!this.filter;
     this.addNewColumns = this.filter?['header-row-first-group', 
@@ -139,12 +377,45 @@ export class IdCardApprovalComponent implements OnInit {
     'header-row-fifth-group','header-row-sixth-group','header-row-sevent-group']:[]
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(RejectReasonComponent, { panelClass: 'custom-dialog-container' });
+  openDialog(row) {
+    const dialogRef = this.dialog.open(RejectReasonComponent, { panelClass: 'custom-dialog-container',data:this.txtRemarksAdmin });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // alert(result);
+      // console.log(result);
+      const data = {
+        intReqNo: row.intReqNo,
+        txtReqStatus:'R',
+        txtRemarksAdmin:result,
+
+      };
+      this.Reject(data);
+    });
+  }
+
+  openEmployeePhotoDialog(row){
+    const data = {
+      EmpId: row.txtEmpNo,
+    };
+    
+    this.IdCardService.getImg(data)
+      .subscribe(
+        products => {
+          // alert(products);
+          //console.log(products);
+          this.image=products;
+          this.dialog.open(EmployeePhotoComponent, { panelClass: 'custom-dialog-container',data:{data:this.image}});
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  openEmployeeDetailsDialog(){
+    const dialogRef = this.dialog.open(EmployeeDetailsComponent, { panelClass: 'custom-dialog-container-mx' });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
-
 }

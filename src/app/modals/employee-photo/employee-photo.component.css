@@ -1,0 +1,29 @@
+.fill-spacer {
+  flex: 1 1 auto;
+}
+
+.body {
+  padding: 2%;
+
+}
+
+.end-row {
+  float: right;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.photo {
+  width: 50%;
+  padding: 10px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.emp_photo {
+  max-width: 200px;
+  max-height: 200px;
+  float: right;
+}

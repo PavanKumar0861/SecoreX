@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <span>Employee Photo</span>
+  <span class="fill-spacer"></span>
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" mat-button
+    mat-dialog-close>
+    <mat-icon color="warn">cancel</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="body">
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div class="photo">
+      <span>New Photo</span>
+      <img class="mt10" [src]="imageSource" style="width: 100%;">
+    </div>
+    <div class="photo">
+      <span>Old Photo</span>
+      <img  class="mt10" [src]="imageSource" style="width: 100%;">
+    </div>
+  </div>
+  
+    <!-- <b>Check: {{this.data.data.imgEmpPhoto}}</b> -->
+
+
+  <br>
+  <div class="end-row"></div>
+</div>

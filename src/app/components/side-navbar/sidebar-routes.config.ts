@@ -9,7 +9,7 @@ export const ROUTES = [
       ]},
       {path: 'card-issue', title: 'Card Issue', icon: 'CI'},
       {path: 'components/wizard', title: 'Payroll Deduction', icon: 'PD'},
-      {path: 'components/wizard', title: 'Inbox', icon: 'I'},
+      {path: 'inbox', title: 'Inbox', icon: 'I'},
       {path: 'components/wizard', title: 'Reports', icon: 'R'},
     ]},
     { path: '#print', id: 'print', title: 'Printing Queue', icon: 'apps', children: [

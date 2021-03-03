@@ -12,13 +12,15 @@
         <button mat-icon-button (click)="snav.toggle()">
           <img class="icons_style" src="../../../assets/img/home.png" alt="sidebar-bg" />
         </button>
-        <span *ngFor = "let item of breadCrumbs;index as i;" style="color:grey;font-size: 2rem;" [ngStyle]="{'color': i==0 ? 'grey':'blue'}" routerLink="{{item.routeLink}}"><span *ngIf="i>0">/</span>{{item.name}}</span> 
+        <span *ngFor="let item of breadCrumbs;index as i;" style="color:grey;font-size: 2rem;"
+          [ngStyle]="{'color': i==0 ? 'grey':'blue'}" routerLink="{{item.routeLink}}"><span
+            *ngIf="i>0">/</span>{{item.name}}</span>
         <!-- <span style="font-size: 2rem;"> / Dashoard</span> -->
         <span style="flex: 1 1 auto;"></span>
 
         <div fxShow="true" fxHide.lt-md class="right-menu">
           <button mat-button [matMenuTriggerFor]="menu" style="height: 0px;">
-            <mat-icon matBadge="8" style="height:50px;right: -11px;" matBadgeColor="warn">notifications_none</mat-icon>
+            <mat-icon matBadge="4" style="height:50px;right: -11px;" matBadgeColor="warn">notifications_none</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item>Notification item 1</button>
@@ -33,7 +35,7 @@
             </mat-icon>
           </button>
           <a href="#" mat-button class="pre-button lh1">
-            <span class="name_style1">Ravi </span><br>
+            <span class="name_style1">{{name}} </span><br>
             <span class="lats_login">ID Card Admin</span>
           </a>
           <!-- <a class="far-end" >
@@ -57,12 +59,12 @@
       </mat-toolbar-row>
       <mat-toolbar-row class="bg-blue">
         <span class="gd_style"> Good Morning </span> &nbsp;&nbsp;&nbsp;
-        <span class="name_style">Pasupathi.S !</span>
+        <span class="name_style">{{name}} !</span>
         <span style="flex: 1 1 auto;"></span>
 
         <div fxShow="true" fxHide.lt-md>
           <span class="name_style2">Last Logged In :</span>&nbsp;&nbsp;
-          <span class="last-login"> 12/ 25 / 2021 04:30 PM</span>
+          <span class="last-login"> {{updateDate}}</span>
         </div>
       </mat-toolbar-row>
 

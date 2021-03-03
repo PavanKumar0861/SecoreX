@@ -39,6 +39,7 @@ const routes: Routes = [
       { path: "print-status", component: PrintStatusComponent },
       { path: "print-pipeline", component: PrintPipelineComponent },
       { path: "completed-queue", component: CompletedQueueComponent },
+      { path: "inbox", component:InboxComponent},
     ]
   },
 

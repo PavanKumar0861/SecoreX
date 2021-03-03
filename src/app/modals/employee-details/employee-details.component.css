@@ -1,0 +1,55 @@
+.fill-spacer {
+  flex: 1 1 auto;
+}
+
+.body {
+  padding: 2%;
+
+}
+
+.end-row {
+  float: right;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.photo {
+  width: 40%;
+  padding: 10px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.emp_table {
+  width: 58%;
+  margin-bottom: 10px;
+}
+
+.header {
+  color: #35169A;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+
+td {
+  color: #7B7878;
+  padding-bottom: 12px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+td:first-child {
+  width: 250px;
+}
+
+
+.emp_photo {
+  max-width: 200px;
+  max-height: 200px;
+  float: right;
+}

@@ -18,11 +18,11 @@
 
       <mat-form-field appearance="outline" class="w-100">
         <!-- <mat-label>Company</mat-label> -->
-        <mat-select placeholder="Reason">
-          <mat-option value="option">Photo not clear</mat-option>
-          <mat-option value="option">Invalid number</mat-option>
-          <mat-option value="option">Address not verified</mat-option>
-          <mat-option value="option">Background verification failed</mat-option>
+        <mat-select placeholder="Reason" [(ngModel)]="txtRemarksAdmin">
+          <mat-option value="Photo not clear">Photo not clear</mat-option>
+          <mat-option value="Invalid number">Invalid number</mat-option>
+          <mat-option value="Address not verified">Address not verified</mat-option>
+          <mat-option value="Background verification failed">Background verification failed</mat-option>
         </mat-select>
       </mat-form-field>
       <!-- <mat-icon>right</mat-icon> -->
@@ -32,7 +32,7 @@
 
   <div class="end mt-4">
     <div class="search">
-      <button mat-flat-button class="bg-black custom-btn" mat-button mat-dialog-close>Ok</button>
+      <button mat-flat-button class="bg-black custom-btn" mat-button [mat-dialog-close]="txtRemarksAdmin" cdkFocusInitial>Ok</button>
     </div>
   </div>
 </div>

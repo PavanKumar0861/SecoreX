@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
+import {ChartService} from "../../services/charts.service";
 
 @Component({
   selector: 'app-bar-chart',
@@ -18,12 +19,40 @@ export class BarChartComponent implements OnInit {
 
   
   public barChartData: ChartDataSets[] = [
-    { data: [65], label: 'Series A' },
-    { data: [9], label: 'Series B' }
+    { data: [], label: '' },
+    //{ data: [9], label: 'Series B' }
   ];
 
-  constructor() { }
+  constructor(private chartservice:ChartService) { }
 
   ngOnInit() {
+    this.ReadBarChart();
   }
+
+  ReadBarChart(): void {
+    const data = {
+      empno: sessionStorage.getItem('empno'),
+      name: "GetProfileCount"
+    };
+    
+    this.chartservice.barChart(data)
+      .subscribe(
+        products => {
+          console.log(products);
+          // alert(products);
+         this.barChartLabels = products.map(x=>x.profileName);
+         for(let i=0;i<products.length;i++)
+          {
+            this.barChartData[i].data=products.map(x=>x.occurance);
+            console.log(this.barChartData[i].data);
+          }
+          // alert(this.pieChartData);
+           //alert(this.pieChartLabels);
+          //this.CardRequest=products;
+        },
+        error => {
+          console.log(error);
+        });
+      
+      }
 }

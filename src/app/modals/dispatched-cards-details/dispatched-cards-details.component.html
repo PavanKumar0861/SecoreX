@@ -1,94 +1,84 @@
 <mat-toolbar color="primary">
-    <span>Dispatch Card</span>
-    <span class="fill-spacer"></span>
-  
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon color="warn">cancel</mat-icon>
-    </button>
-  </mat-toolbar>
-  
-  <div class="body">
-    <div fxLayout.xs="column"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-    >
+  <span>Dispatch Card</span>
+  <span class="fill-spacer"></span>
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon color="warn">cancel</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="body">
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
     <div fxFlex class="search">
       <h2>Dispatch Reference Number </h2>
-      </div>
-      <div fxFlex class="search">
-    
-        <h2> :1234 </h2>
-        </div>
-      </div>
-    
-      <div fxLayout.xs="column"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-      >
-      <div fxFlex class="search">
-        <h2>Courier Number </h2>
-        </div>
-        <div fxFlex class="search">
-      
-          <h2> :1234 </h2>
-          </div>
-        </div>
+    </div>
+    <div fxFlex class="search">
 
-        <div fxLayout.xs="column"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-        >
-        <div fxFlex class="search">
-          <h2>Vendor Name</h2>
-          </div>
-          <div fxFlex class="search">
-        
-            <h2>:Janaki</h2>
-            </div>
-          </div>
-
-          <div fxLayout.xs="column"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-          >
-          <div fxFlex class="search">
-            <h2>Dispatched Date</h2>
-            </div>
-            <div fxFlex class="search">
-          
-              <h2>:2021-03-21</h2>
-              </div>
-            </div>
-
-
-            <div fxLayout.xs="column"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-            >
-            <div fxFlex class="search">
-              <h2>Dispatched by</h2>
-              </div>
-              <div fxFlex class="search">
-            
-                <h2>:25034</h2>
-                </div>
-              </div>
-
-              <div fxLayout.xs="column"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-              >
-              <div fxFlex class="search">
-                <h2>status</h2>
-                </div>
-                <div fxFlex class="search">
-              
-                  <h2>:D</h2>
-                  </div>
-                </div>
-
-                <div fxLayout.xs="column"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-                >
-                <div fxFlex class="search">
-                  <h2>Remarks</h2>
-                  </div>
-                  <div fxFlex class="search">
-                
-                    <h2>:Undefined</h2>
-                    </div>
-                  </div>
-      
-      <button mat-flat-button  class="bg-black custom-btn">Close</button>
-  
+      <h2> :1234 </h2>
+    </div>
   </div>
-  
-  
-  
+
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxFlex class="search">
+      <h2>Courier Number </h2>
+    </div>
+    <div fxFlex class="search">
+
+      <h2> :1234 </h2>
+    </div>
+  </div>
+
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxFlex class="search">
+      <h2>Vendor Name</h2>
+    </div>
+    <div fxFlex class="search">
+
+      <h2>:Janaki</h2>
+    </div>
+  </div>
+
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxFlex class="search">
+      <h2>Dispatched Date</h2>
+    </div>
+    <div fxFlex class="search">
+
+      <h2>:2021-03-21</h2>
+    </div>
+  </div>
+
+
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxFlex class="search">
+      <h2>Dispatched by</h2>
+    </div>
+    <div fxFlex class="search">
+
+      <h2>:25034</h2>
+    </div>
+  </div>
+
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxFlex class="search">
+      <h2>status</h2>
+    </div>
+    <div fxFlex class="search">
+
+      <h2>:D</h2>
+    </div>
+  </div>
+
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxFlex class="search">
+      <h2>Remarks</h2>
+    </div>
+    <div fxFlex class="search">
+
+      <h2>:Undefined</h2>
+    </div>
+  </div>
+
+  <button mat-flat-button class="bg-black custom-btn" (click)="onNoClick()">Close</button>
+
+</div>

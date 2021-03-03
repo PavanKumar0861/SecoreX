@@ -8,12 +8,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./reject-reason.component.css']
 })
 export class RejectReasonComponent implements OnInit {
-
+  txtRemarksAdmin:'';
   constructor(
     public dialogRef: MatDialogRef<PrintPipelineComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
     ngOnInit(): void {
+      //console.log(this.data)
     }
   
     

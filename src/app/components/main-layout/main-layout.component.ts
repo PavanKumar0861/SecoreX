@@ -12,6 +12,8 @@ import { Location } from '@angular/common';
 export class MainLayoutComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
   opened: boolean = true;
+  updateDate: Date = new Date();
+  name;
 
   // fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 
@@ -48,12 +50,23 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
           {name:"ID Card Admin",routeLink:'dashboard'},
           {name:'Dispatch',routeLink:'dispatch'}
         ]
+      }else if(path=='/home/card-issue'){
+        this.breadCrumbs=[
+          {name:"ID Card Admin",routeLink:'dashboard'},
+          {name:'Card Issue',routeLink:'card-issue'}
+        ]
+      }else if(path=='/home/inbox'){
+        this.breadCrumbs=[
+          {name:"ID Card Admin",routeLink:'dashboard'},
+          {name:'Inbox',routeLink:'inbox'}
+        ]
       }
+      
     });
   }
   router = []
   ngOnInit() {
-
+    this.name = sessionStorage.getItem('loggedUser');
 
   }
   ngOnDestroy(): void {

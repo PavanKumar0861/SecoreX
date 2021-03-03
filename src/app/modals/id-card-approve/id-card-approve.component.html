@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <span>Id Card Approve</span>
+  <span class="fill-spacer"></span>
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" mat-button
+    mat-dialog-close>
+    <mat-icon color="warn">cancel</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="body">
+
+  <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxFlex class="search">
+      <h2>Are you sure approve?</h2>
+    </div>
+  </div>
+
+  <br>
+  <div class="end-row">
+    <button mat-flat-button class="bg-black custom-btn mr-4" mat-button mat-dialog-close>Ok</button>
+    <button mat-stroked-button color="warn" class="br-red custom-btn" mat-button mat-dialog-close>Cancel</button>
+  </div>
+</div>

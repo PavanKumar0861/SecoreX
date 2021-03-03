@@ -1,0 +1,208 @@
+<mat-toolbar color="primary">
+    <span>Employee Detail</span>
+    <span class="fill-spacer"></span>
+  
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" mat-button
+      mat-dialog-close>
+      <mat-icon color="warn">cancel</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <div class="body">
+    <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+      <table class="emp_table">
+        <tr>
+          <th colspan="2" class="header">Employee Details</th>
+        </tr>
+        <tr>
+          <td>Employee Number</td>
+          <td>:&nbsp;&nbsp;{{employee.emp_no}}</td>
+        </tr>
+        <tr>
+          <td>Employee Name</td>
+          <td>:&nbsp;&nbsp;{{employee.name}}</td>
+        </tr>
+        <tr>
+          <td>Mail Id</td>
+          <td>:&nbsp;&nbsp;{{employee.mail_id}}</td>
+        </tr>
+        <tr>
+          <td>Department P/U</td>
+          <td>:&nbsp;&nbsp;{{employee.department}}</td>
+        </tr>
+        <tr>
+          <td>Base Location</td>
+          <td>:&nbsp;&nbsp;{{employee.base_location}}</td>
+        </tr>
+        <tr>
+          <td>Current Location</td>
+          <td>:&nbsp;&nbsp;{{employee.current_loation}}</td>
+        </tr>
+        <tr>
+          <td>Extenton</td>
+          <td>:&nbsp;&nbsp;{{employee.Extension}}</td>
+        </tr>
+        <tr>
+          <td>Preffered Display Name</td>
+          <td>:&nbsp;&nbsp;{{employee.preffered_display_name}}</td>
+        </tr>
+      </table>
+
+      <div class="photo">
+        <img class="emp_photo" src='../../../assets/img/employee.png'>
+      </div>
+    </div>
+    <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+      <table class="emp_table">
+        <tr>
+          <th colspan="2" class="header">Previous Card Issue</th>
+        </tr>
+        <tr>
+          <td>Card Effective Form</td>
+          <td>:&nbsp;&nbsp;{{employee.card_effective_form}}</td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td>:&nbsp;&nbsp;{{employee.status}}</td>
+        </tr>
+        <tr>
+          <td>Reason For Apply</td>
+          <td>:&nbsp;&nbsp;{{employee.reason_for_apply}}</td>
+        </tr>
+      </table>
+
+      
+    </div>
+
+    <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+      <table class="emp_table">
+        <tr>
+          <th colspan="2" class="header">Request Details</th>
+        </tr>
+        <tr>
+          <td>Request No</td>
+          <td>:&nbsp;&nbsp;{{employee.request_no}}</td>
+        </tr>
+        <tr>
+          <td>Request Date</td>
+          <td>:&nbsp;&nbsp;{{employee.request_date}}</td>
+        </tr>
+        <tr>
+          <td>Reason For Applying</td>
+          <td>:&nbsp;&nbsp;{{employee.reason_for_applying}}</td>
+        </tr>
+        <tr>
+          <td>User Remarks</td>
+          <td>:&nbsp;&nbsp;{{employee.user_marks}}</td>
+        </tr>
+        <tr>
+          <td>Desk Name</td>
+          <td>:&nbsp;&nbsp;{{employee.desk_name}}</td>
+        </tr>
+        <tr>
+          <td>Phone Number</td>
+          <td>:&nbsp;&nbsp;{{employee.phone_number}}</td>
+        </tr>
+      </table>
+
+      
+    </div>
+
+    <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+      <table class="emp_table">
+        <tr>
+          <th colspan="2" class="header">Action Details</th>
+        </tr>
+        <tr>
+          <td>Request Date</td>
+          <td>:&nbsp;&nbsp;{{employee.request_date2}}</td>
+        </tr>
+        <tr>
+          <td>Late Acted By</td>
+          <td>:&nbsp;&nbsp;{{employee.Last_acted_by}}</td>
+        </tr>
+        <tr>
+          <td>Consent Responded on</td>
+          <td>:&nbsp;&nbsp;{{employee.consent_responed_on}}</td>
+        </tr>
+        <tr>
+          <td>Consent Availability</td>
+          <td>:&nbsp;&nbsp;{{employee.consent_availability}}</td>
+        </tr>
+        <tr>
+          <td>Approved On</td>
+          <td>:&nbsp;&nbsp;{{employee.approved_on}}</td>
+        </tr>
+        <tr>
+          <td>Approved By</td>
+          <td>:&nbsp;&nbsp;{{employee.approved_by}}</td>
+        </tr>
+        <tr>
+          <td>Card Printed On</td>
+          <td>:&nbsp;&nbsp;{{employee.card_printed_on}}</td>
+        </tr>
+        <tr>
+          <td>Card Printed By</td>
+          <td>:&nbsp;&nbsp;{{employee.card_printed_by}}</td>
+        </tr>
+        <tr>
+          <td>Certificate Request No.</td>
+          <td>:&nbsp;&nbsp;{{employee.certificate_request_no}}</td>
+        </tr>
+        <tr>
+          <td>Certificate Request Status</td>
+          <td>:&nbsp;&nbsp;{{employee.certificate_request_status}}</td>
+        </tr>
+        <tr>
+          <td>Certificate Request Raised On</td>
+          <td>:&nbsp;&nbsp;{{employee.certificate_request_raised_on}}</td>
+        </tr>
+        <tr>
+          <td>Certificate Completed On</td>
+          <td>:&nbsp;&nbsp;{{employee.certificate_completed_on}}</td>
+        </tr>
+        <tr>
+          <td>Card Dispatched On</td>
+          <td>:&nbsp;&nbsp;{{employee.card_dispatch_on}}</td>
+        </tr>
+        <tr>
+          <td>Card Dispatched By</td>
+          <td>:&nbsp;&nbsp;{{employee.card_dispatched_by}}</td>
+        </tr>
+        <tr>
+          <td>Received On</td>
+          <td>:&nbsp;&nbsp;{{employee.received_on}}</td>
+        </tr>
+        <tr>
+          <td>Received By</td>
+          <td>:&nbsp;&nbsp;{{employee.received_by}}</td>
+        </tr>
+        <tr>
+          <td>Mail Send On</td>
+          <td>:&nbsp;&nbsp;{{employee.mail_sent_on}}</td>
+        </tr>
+        <tr>
+          <td>Mail Send By</td>
+          <td>:&nbsp;&nbsp;{{employee.mail_sent_by}}</td>
+        </tr>
+        <tr>
+          <td>Issued On</td>
+          <td>:&nbsp;&nbsp;{{employee.issued_on}}</td>
+        </tr>
+        <tr>
+          <td>Issued By</td>
+          <td>:&nbsp;&nbsp;{{employee.issued_by}}</td>
+        </tr>
+        <tr>
+          <td>Photo Moved to EDS</td>
+          <td>:&nbsp;&nbsp;{{employee.photo_moved_eds}}</td>
+        </tr>
+      </table>
+
+      
+    </div>
+  
+    <br>
+    <div class="end-row"></div>
+  </div>
+  

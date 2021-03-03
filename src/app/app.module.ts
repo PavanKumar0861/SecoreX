@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
@@ -31,6 +31,13 @@ import { PrinterTemplateComponent } from './modals/printer-template/printer-temp
 import { DispatchedCardsDetailsComponent } from './modals/dispatched-cards-details/dispatched-cards-details.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RejectReasonComponent } from './modals/reject-reason/reject-reason.component';
+import { IdCardApproveComponent } from './modals/id-card-approve/id-card-approve.component';
+import { EmployeePhotoComponent } from './modals/employee-photo/employee-photo.component';
+import { EmployeeDetailsComponent } from './modals/employee-details/employee-details.component';
+import { CardPreviewComponent } from './modals/card-preview/card-preview.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +61,11 @@ import { RejectReasonComponent } from './modals/reject-reason/reject-reason.comp
     CompletedQueueComponent,
     PrinterTemplateComponent,
     DispatchedCardsDetailsComponent,
-    RejectReasonComponent
+    RejectReasonComponent,
+    IdCardApproveComponent,
+    EmployeePhotoComponent,
+    EmployeeDetailsComponent,
+    CardPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +74,9 @@ import { RejectReasonComponent } from './modals/reject-reason/reject-reason.comp
     MaterialModule,ChartsModule,
     FlexLayoutModule,
     MatPaginatorModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     MatDialogModule
   ],
   providers: [

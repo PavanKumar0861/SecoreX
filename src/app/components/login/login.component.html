@@ -18,13 +18,16 @@
             <div class="form-row1 mt10">
               <mat-form-field  appearance="outline">
                 <mat-label >User Email Id</mat-label>
-                <input matInput placeholder="Email ID">
+                <input matInput placeholder="Email ID" required
+                [(ngModel)]="product.emailId">
               </mat-form-field>
             </div>
             <div class="form-row1">
               <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="Password">
+                <input matInput placeholder="Password" required
+                [(ngModel)]="product.password"
+                type="password">
               </mat-form-field>
             </div>
             <div class="row mb20">
@@ -33,11 +36,16 @@
             </div>
             <div class="row">
               <div class="col-md-6"><button class='btn-reg'>Register</button></div>
-              <div class="col-md-6"><button class='btn-login'routerLink="home/dashboard">Login</button></div>
+              <!-- <div class="col-md-6"><button class='btn-login'routerLink="home/dashboard">Login</button></div> -->
+              <div class="col-md-6"><button (click)="Login()" class='btn-login'>Login</button></div>
             </div>
             <br><br><br>
             
           </div>
+        </div>
+        <div *ngIf="submitted">
+          <h3>Please Enter Valid UserName and Password!</h3>
+        
         </div>
       </div>
     </div>

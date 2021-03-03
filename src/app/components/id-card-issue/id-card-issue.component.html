@@ -2,16 +2,14 @@
     <div class="container">
         <div class="row dash_sty">
             <mat-card class="bg-grey mb-0" style="margin-bottom: 0px !important;">
-                <div fxLayout.xs="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-                    style="margin-bottom: 0px !important;">
+                <div fxLayout.xs="column" fxLayout="row" fxLayoutGap="10px"
+                    style="margin-bottom: -20px !important;">
                     <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
                         <mat-form-field appearance="outline" class="w-90 ">
                             <!-- <mat-label>Company</mat-label> -->
-                            <mat-select placeholder="Company">
-                                <mat-option value="option">company 1</mat-option>
-                                <mat-option value="option">company 2</mat-option>
-                                <mat-option value="option">company 3</mat-option>
-                                <mat-option value="option">company 4</mat-option>
+                            <mat-select placeholder="Company"[(ngModel)]="searchfilter.txtCompany">
+                                <mat-option value="All">--All--</mat-option>
+                                    <mat-option *ngFor="let companies of company" value={{companies.txtCompany}}>{{companies.txtDescription}}</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
@@ -19,28 +17,22 @@
                     <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
                         <mat-form-field appearance="outline" class="w-90">
                             <!-- <mat-label>Location</mat-label> -->
-                            <mat-select placeholder="Location">
-                                <mat-option value="option">location 1</mat-option>
-                                <mat-option value="option">location 2</mat-option>
-                                <mat-option value="option">location 3</mat-option>
-                                <mat-option value="option">location 4</mat-option>
+                            <mat-select placeholder="Location" [(ngModel)]="searchfilter.txtCurrentLocationApplied">
+                                <mat-option value="All">--All--</mat-option>
+                                    <mat-option *ngFor="let locations of location" value={{locations.txtCity}}>{{locations.txtCity}}</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
 
-                    <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
-                        <mat-form-field appearance="outline" class="w-90">
-                            <!-- <mat-label>Location</mat-label> -->
-                            <mat-select placeholder="Request Type">
-                                <mat-option value="option">request 1</mat-option>
-                                <mat-option value="option">request 2</mat-option>
-                                <mat-option value="option">request 3</mat-option>
-                                <mat-option value="option">request 4</mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                    <div fxFlex.sm="15%" fxFlex.md="20%" fxFlex.gt-md="15%" class="search">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<button mat-flat-button class="bg-black custom-btn" (click)="search()">Search</button>
                     </div>
 
-                    <div fxFlex.sm="50%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
+                    <div fxFlex.sm="20%" fxFlex.md="20%" fxFlex.gt-md="15%" class="search">
+                        <button mat-stroked-button class="custom-btn" (click)="handleClear()">RESET</button>
+                    </div>
+
+                    <div fxFlex.sm="20%" fxFlex.md="25%" fxFlex.gt-md="25%" class="search custom-field-height">
                         <h3 *ngIf="advanceVisible" class="ml-10 cd_lst"><u class="advance_search"
                                 (click)="advance_click()">+
                                 Advance Search</u></h3>
@@ -56,19 +48,25 @@
                     style="margin-bottom: 0px !important;">
 
                     <div fxFlex class="search custom-field-height">
+                        <mat-form-field appearance="outline" class="w-90" *ngIf="isVisible">
+                            <!-- <mat-label>Location</mat-label> -->
+                            <mat-select placeholder="Request Type"[(ngModel)]="searchfilter.txtReasonForApply">
+                                <mat-option value="0">--All--</mat-option>
+                                <mat-option value="New">New</mat-option>
+                                <mat-option value="Damage">Damage</mat-option>
+                                <mat-option value="Lost">Lost</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex class="search custom-field-height">
                         <mat-form-field *ngIf="isVisible" appearance="outline" style="color:black" class="w-90">
-                            <input matInput placeholder="Card Number" />
+                            <input matInput placeholder="Card Number" [(ngModel)]="searchfilter.txtEmpNo"/>
                         </mat-form-field>
                     </div>
 
 
-                    <div fxFlex.sm="50%" fxFlex.md="20%" fxFlex.gt-md="15%" class="search">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<button mat-flat-button class="bg-black custom-btn">Search</button>
-                    </div>
-
-                    <div fxFlex.sm="50%" fxFlex.md="20%" fxFlex.gt-md="15%" class="search">
-                        <button mat-stroked-button class="custom-btn">RESET</button>
-                    </div>
+                    
                 </div>
 
 
@@ -93,8 +91,8 @@
                     </div>
 
                     <div fxFlex.sm="40%" fxFlex.md="30%" fxFlex.gt-md="35%" class="search">
-                        <button mat-flat-button class="bg-black mr-4 custom-btn">Issue</button>
-                        <button mat-flat-button class="bg-black mr-4 custom-btn" (click)="openDialog()">Preview</button>
+                        <button mat-flat-button class="bg-black mr-4 custom-btn" (click)="openDialog()">Issue</button>
+                        <button mat-flat-button class="bg-black mr-4 custom-btn" (click)="openPreview()">Preview</button>
 
                         <button mat-raised-button (click)="addNewFilter()">
                             <mat-icon>tune</mat-icon>
@@ -128,35 +126,35 @@
 
                     <ng-container matColumnDef="empNo">
                         <th class="cd_lst" mat-header-cell *matHeaderCellDef>Emp No.</th>
-                        <td class="cd_table" mat-cell *matCellDef="let element">{{ element.empNo }}</td>
+                        <td class="cd_table" mat-cell *matCellDef="let element">{{ element.txtEmpNo }}</td>
                     </ng-container>
 
                     <ng-container matColumnDef="company">
                         <th class="cd_lst" mat-header-cell *matHeaderCellDef>Company</th>
-                        <td class="cd_table" mat-cell *matCellDef="let element">{{ element.company }}</td>
+                        <td class="cd_table" mat-cell *matCellDef="let element">{{ element.txtCompany }}</td>
                     </ng-container>
 
                     <ng-container matColumnDef="cardNo">
                         <th class="cd_lst" mat-header-cell *matHeaderCellDef>Card No</th>
-                        <td class="cd_table" mat-cell *matCellDef="let element">{{ element.cardNo }}</td>
+                        <td class="cd_table" mat-cell *matCellDef="let element">{{ element.txtCardNo }}</td>
                     </ng-container>
 
 
                     <ng-container matColumnDef="requestTypes">
                         <th class="cd_lst" mat-header-cell *matHeaderCellDef>Request Types</th>
-                        <td mat-cell *matCellDef="let element">{{ element.requestType }}</td>
+                        <td mat-cell *matCellDef="let element">{{ element.txtReasonForApply }}</td>
                     </ng-container>
 
 
                     <ng-container class="cd_lst" matColumnDef="location">
                         <th class="cd_lst" mat-header-cell *matHeaderCellDef>Location</th>
-                        <td class="cd_table" mat-cell *matCellDef="let element">{{ element.location }}</td>
+                        <td class="cd_table" mat-cell *matCellDef="let element">{{ element.txtCurrentLocationApplied }}</td>
                     </ng-container>
 
                     <ng-container class="cd_lst" matColumnDef="status">
                         <th class="cd_lst" mat-header-cell *matHeaderCellDef>Status</th>
                         <td class="cd_table" mat-cell *matCellDef="let element"><button class="bg-green">
-                                {{ element.status }}</button></td>
+                                {{ element.txtReqStatus }}</button></td>
                     </ng-container>
 
                     <ng-container matColumnDef="action">
@@ -234,6 +232,7 @@
                     <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selection.toggle(row)">
                     </tr>
                 </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons (page)="getNext($event)"></mat-paginator>
             </mat-card>
         </div>
     </div>

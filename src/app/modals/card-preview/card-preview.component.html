@@ -1,0 +1,90 @@
+<mat-toolbar color="primary">
+    <span>Card Preview</span>
+    <span class="fill-spacer"></span>
+
+    <button mat-icon-button class="example-icon" (click)="onNoClick()" aria-label="Example icon-button with share icon">
+        <mat-icon color="warn">cancel</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="body" style="padding: 5%;">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+        <div fxFlex class="search">
+            <h4>Front</h4>
+            <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="5px" class="bg-card">
+                <div fxFlex class="search">
+                    <img style="width:10vw" src="https://1000logos.net/wp-content/uploads/2020/08/Infosys-Logo.png">
+                </div>
+                <div fxFlex class="search">
+                    <img src="../../../assets/img/profile.jfif">
+                </div>
+                <div fxFlex class="search">
+                    <h4>Syam Sundar</h4>
+                </div>
+                <div fxFlex class="search">
+                    <h4>250432</h4>
+                </div>
+            </div>
+        </div>
+
+        <div fxFlex class="search" >
+            <h4>Back</h4>
+            <div class="bg-card" style="padding-bottom: 7%;padding-left:4%;padding-right:4% ;padding-top: 5%;">
+                <div fxLayout="column" fxLayoutAlign="start center" style="padding-bottom: 2px;">
+                    <div fxFlex class="search">
+                        <img style="width:10vw" src="https://1000logos.net/wp-content/uploads/2020/08/Infosys-Logo.png">
+                    </div>
+                </div>
+
+                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="1px">
+                    <div fxFlex class="search">
+                        <p class="font-custom font-bold" style="font-size: 14px;">Infosys Limited</p>
+
+                    </div>
+
+                    <div fxFlex class="search">
+                        <address>Plot No.25 and 23,konappana Agrahara,
+                            village,Begur Hobli,Electronic City,
+                            Bengaluru,Karnataka 560100
+                            village,Begur Hobli,Electronic City
+                            Phone no:+080-8748974476</address>
+
+                        <p class="font-custom">Employee Name</p>
+                        <p class="font-custom">Syam Sundar</p>
+                        <p class="font-custom">Employee Number</p>
+                        <p class="font-custom">250432 </p>
+                        <p class="font-custom">Emergency Contact Number</p>
+                        <p class="font-custom">+91-9037764664</p>
+                    </div>
+                </div>
+
+                <div fxLayout="column" fxLayoutAlign="start center">
+                    <div fxFlex class="search">
+                        <img src="../../../assets/img/bar.png">
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="center mt-4">
+    <div class="search">
+        <button mat-flat-button class="bg-black custom-btn">Issue</button>
+    </div>
+    <div class="search ml-4">
+        <button mat-stroked-button color="warn" (click)="onNoClick()" class="br-red custom-btn">Cancel</button>
+    </div>
+</div>
+<br>
